@@ -5,6 +5,7 @@ import requests from '../Requests'
 export default function Major() {
     const [movies, setMovies] = useState([])
 
+    const  singleMovie = movies[Math.floor(Math.random() * movies.length)]
     const getMovies = () =>{
         axios.get(requests.requestPopular).then((res) => {
 
@@ -13,7 +14,7 @@ export default function Major() {
         })
     }
     useEffect(()=> getMovies(), [])
-    console.log(movies)
+    console.log(singleMovie.overview)
   return (
     <div>Major</div>
   )
