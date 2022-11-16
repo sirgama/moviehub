@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { UserAuth } from '../context/AuthContext'
+
 
 export default function Signup() {
 
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const {user, signUp} = UserAuth()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            await signUp(email, password)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
   return (
     <>
@@ -13,9 +27,9 @@ export default function Signup() {
             <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
                 <div className="max-w-[320px] mx-auto py-16">
                     <h1 className="text-3xl font-bold text-center">Sign up</h1>
-                    <form action="" className='w-full flex flex-col py-4'>
-                        <input className='p-3 my-2 bg-gray-700 rounded' type="email" name="email" id="email" autoComplete='email' placeholder='Email' />
-                        <input className='p-3 my-2 bg-gray-700 rounded' type="password" name="" id="" autoComplete='current-password' placeholder='Password' />
+                    <form onSubmit={handleSubmit} action="" className='w-full flex flex-col py-4'>
+                        <input onChange={(e) => setEmail(e.target.value)} className='p-3 my-2 bg-gray-700 rounded' type="email" name="emailRef" id="email" autoComplete='email' placeholder='Email' />
+                        <input onChange={(e) => setPassword(e.target.value)} className='p-3 my-2 bg-gray-700 rounded' type="password" name="PasswordRef" id="password" autoComplete='current-password' placeholder='Password' />
                         <button type="submit" className='bg-red-600 px-6 py-3 rounded text-gray-30 my-6 font-semibold'>Create account</button>
                         <div className='flex justify-between items-center text-sm text-gray-500'>
                             <p><input type="checkbox" name="" id="" /> Remember me</p>
