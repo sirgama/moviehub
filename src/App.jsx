@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Account from "./pages/Account";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Nav from "./components/Nav";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
     <AuthContextProvider>
       
       <BrowserRouter>
-      <Navbar />
+      <Nav />
+     
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
