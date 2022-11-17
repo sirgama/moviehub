@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
-import Logon from '../components/logon'
 import Logo from '../assets/logo.svg'
 import './Login.css'
 
@@ -40,8 +39,16 @@ export default function Login() {
             </div>
             
             <div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
+            
                 <div className="flex-1">
                     <div className="text-start">
+                    {errorr && <div className="flex p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+                    <svg aria-hidden="true" className="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                    <span className="sr-only">Info</span>
+                    <div>
+                        <span className="font-medium"></span> {errorr}.
+                    </div>
+                    </div>}
                         <h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white"> <img
                     className=" h-16 w-auto lg:block"
                     src={Logo}
@@ -69,7 +76,7 @@ export default function Login() {
 
                             <div className="mt-6">
                                 <button
-                                    className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                                    className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-400 focus:outline-none focus:bg-pink-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                                     Sign in
                                 </button>
                             </div>

@@ -18,7 +18,7 @@ const handleLogout = async () =>{
 }
 
   return (
-    <div className='flex items-center justify-between p-8 z-[100] absolute w-full'>
+    <div className='flex items-center justify-between p-8 z-[100] fixed w-full'>
         <img src={Logo} width={170} alt="Netflix" />
         {user?.email ? <div>
             <Link to='/login'>

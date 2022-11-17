@@ -1,5 +1,6 @@
 import React from "react";
 import { RoughNotation } from "react-rough-notation";
+import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
@@ -49,9 +50,9 @@ export default function Landing() {
             <button className="">
             
           </button>
-          <button className="text-gray-200 font-bold my-6 px-8 py-3 bg-pink-500 rounded shadow-lg  md:mx-20  ">
+          <Link to='/signup'><button className="text-gray-200 font-bold my-6 px-8 py-3 bg-pink-500 rounded shadow-lg  md:mx-20  ">
             Get Started
-          </button>
+          </button></Link>
           </div>
           
         </div>
