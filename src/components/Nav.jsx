@@ -6,10 +6,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Movies', href: '/home', current: false },
-  { name: 'Trending', href: '#', current: false },
-  { name: 'Coming Soon', href: '#', current: false },
+  { name: 'Movies', href: '/home', current: true },
 ]
 
 function classNames(...classes) {
@@ -31,7 +28,7 @@ const handleLogout = async () =>{
 }
 
   return (
-    <Disclosure as="nav" className="bg-[transparent] z-100">
+    <Disclosure as="nav" className="">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -48,7 +45,7 @@ const handleLogout = async () =>{
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <Link to='/'><div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-8 w-auto lg:hidden"
                     src={Logo}
@@ -60,6 +57,7 @@ const handleLogout = async () =>{
                     alt="MovieHub"
                   />
                 </div>
+                </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -75,9 +73,13 @@ const handleLogout = async () =>{
                         {item.name}
                       </a>
                     ))}
+                    <form action="" className=''>
+                      <input type="search" name="movie" id="movie" className='bg-gray-700 md:px-10 py-1 rounded-md text-white border-sky-700' placeholder='Search for movies...' />
+                    </form>
                   </div>
                 </div>
               </div>
+              /
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
@@ -108,12 +110,12 @@ const handleLogout = async () =>{
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-pink-500 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-100 font-semibold')}
                           >
                             Your Profile
                           </a>
@@ -123,7 +125,7 @@ const handleLogout = async () =>{
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-100 font-semibold')}
                           >
                             Settings
                           </a>
@@ -133,7 +135,7 @@ const handleLogout = async () =>{
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-100 font-semibold')}
                             onClick={handleLogout}
                           >
                             Sign out
@@ -144,6 +146,7 @@ const handleLogout = async () =>{
                   </Transition>
                 </Menu>
               </div>
+
             </div>
           </div>
 
