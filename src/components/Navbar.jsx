@@ -11,7 +11,7 @@ const navigate = useNavigate()
 const handleLogout = async () =>{
     try {
         await logOut()
-        navigate('/signup')
+        navigate('/')
     } catch (error) {
         console.log(error)
     }
