@@ -100,7 +100,7 @@ export default function Landing() {
       <h1 className="text-center my-10 p-4 text-3xl md:text-4xl font-bold text-cyan-200 "> <span className="border-t-4 border-b-4 py-2 px-6 border-l-zinc-500 border-b-pink-500 border-t-sky-500">Coming Soon</span></h1>
       <div className="md:w-2/3 mx-auto lg:hidden" >
       <iframe width="375" height="270"
-        src="https://www.youtube.com/embed/bKh2G73gCCs?playlist=bKh2G73gCCs&loop=0&controls=1">
+        src="https://www.youtube.com/embed/bKh2G73gCCs">
         </iframe>
       </div>
       <div className="w-4/6 mx-auto hidden lg:block  ">
