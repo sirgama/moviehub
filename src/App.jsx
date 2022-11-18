@@ -16,8 +16,8 @@ function App() {
     <AuthContextProvider>
       
       <BrowserRouter>
-      <Nav />
      
+     <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
