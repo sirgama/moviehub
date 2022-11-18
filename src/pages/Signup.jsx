@@ -46,6 +46,7 @@ export default function Signup() {
                     alt="MovieHub"
                   />Create account
                     <h1 className="text-xl font-bold text-star my-3"></h1>
+              
                     <form onSubmit={handleSubmit} action="" className='w-full flex flex-col py-4'>
                         <input onChange={(e) => setEmail(e.target.value)} className='p-3 my-2 bg-gray-700 rounded' type="email" name="emailRef" id="email" autoComplete='email' placeholder='Email' />
                         <input onChange={(e) => setPassword(e.target.value)} className='p-3 my-2 bg-gray-700 rounded' type="password" name="PasswordRef" id="password" autoComplete='current-password' placeholder='Password' />
