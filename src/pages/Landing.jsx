@@ -61,10 +61,10 @@ export default function Landing() {
       </div>
 
     <div className="w-full p-5  ">
-      <div className="w-2/3  mx-auto">
+      <div className="w-full md:w-2/3  mx-auto">
         <div className="flex justify-between md:my-6">
-          <h3 className=" text-white text-xl font-bold underline decoration-indigo-500">Well curated movies</h3>
-          <h6 className="text-white text-xl font-bold underline decoration-indigo-500">See all</h6>
+          <h3 className=" text-white text-sm md:text-xl font-bold underline decoration-indigo-500">Well curated movies</h3>
+          <h6 className="text-white text-sm md:text-xl font-bold underline decoration-indigo-500">See all</h6>
         </div>
           
           <div>
