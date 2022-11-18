@@ -50,12 +50,12 @@ export default function Row({ title, fetchUrl, rowId }) {
     console.log(movies)
     return (
         <div className='md:mt-8'>
-            <h2 className="text-pink-100 font-bold text-4xl md:text-5xl p-6 md:mx-20 underline decoration-purple-500 font-mono">{title}</h2>
+            <h2 className="text-gray-100  font-bold text-xl md:text-xl p-8 md:mx-20 "> <span className='border px-6 md:px-10 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500'>{title}</span></h2>
             <div className="relative flex items-center group">
                 <MdChevronLeft onClick={slideRight} className='bg-gray-200 left-0 rounded-full absolute opacity-40 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
                 <div id={'slider' + rowId} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
                     {movies.map((item, id) => (
-                        <div key={item.id} className='w-[240px] sm:w-[240px] lg:w-[280px] h-96 inline-block cursor-pointer relative p-3'>
+                        <div key={item.id} className='w-[240px] sm:w-[240px] lg:w-[280px] h-96 p-2 md:p-0 inline-block cursor-pointer relative'>
                             <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-3xl' src={`https://image.tmdb.org/t/p/w500${item?.poster_path}`} alt={item.title} />
                             {/* <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-80 text-white">
                                 <p className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center '>{item?.title}</p>
