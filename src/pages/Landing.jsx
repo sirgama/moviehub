@@ -1,6 +1,8 @@
 import React from "react";
 import { RoughNotation } from "react-rough-notation";
 import { Link } from "react-router-dom";
+import Row from '../components/Row'
+import requests from '../Requests'
 
 export default function Landing() {
   return (
@@ -58,8 +60,19 @@ export default function Landing() {
         </div>
       </div>
 
-    <div className="w-full p-5">
-      <h3 className=" text-white font-bold">Yellow</h3>
+    <div className="w-full p-5  ">
+      <div className="w-2/3  mx-auto">
+        <div className="flex justify-between md:my-6">
+          <h3 className=" text-white text-xl font-bold underline decoration-indigo-500">Well curated movies</h3>
+          <h6 className="text-white text-xl font-bold underline decoration-indigo-500">See all</h6>
+        </div>
+          
+          <div>
+          <Row rowId='2' title='Most popular movies' fetchUrl={requests.requestPopular}/>
+          </div>
+
+      </div>
+      
     </div>
 
     </div>
