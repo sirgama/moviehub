@@ -50,7 +50,7 @@ export default function Row({ title, fetchUrl, rowId }) {
     console.log(movies)
     return (
         <div className='md:mt-8'>
-            <h2 className="text-white font-bold md:text-xl p-4 ">{title}</h2>
+            <h2 className="text-pink-100 font-bold text-4xl md:text-5xl p-6 md:mx-20 underline decoration-purple-500 font-mono">{title}</h2>
             <div className="relative flex items-center group">
                 <MdChevronLeft onClick={slideRight} className='bg-gray-200 left-0 rounded-full absolute opacity-40 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
                 <div id={'slider' + rowId} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
