@@ -70,11 +70,31 @@ export default function Landing() {
           <div>
           <Row rowId='2' title='Most popular movies' fetchUrl={requests.requestPopular}/>
           </div>
-
+         
       </div>
       
     </div>
-
+    <div className="text-white w-full bg-gradient-to-r from-violet-500 to-fuchsia-500">
+            <h1 className="text-4xl text-center p-5 my-8 font-bold ">What we <br /> <span className="underline decoration-sky-500">Actually offer</span> </h1>
+            <div className="flex flex-wrap justify-around md:flex-nowrap w-5/6 mx-auto">
+              <div className="flex flex-col  p-6 md:p-1 m-10">
+                  <h3 className="text-4xl text-center font-bold text-cyan-200">800+</h3>
+                  <h5 className="text-base my-4 font-bold">Movies and tv shows</h5>
+              </div>
+              <div className="flex flex-col p-6 md:p-1 m-10">
+                  <h3 className="text-4xl text-center font-bold text-emerald-200">16k+</h3>
+                  <h5 className="text-base my-4 font-bold">listed episodes</h5>
+              </div>
+              <div className="flex flex-col  p-6 md:p-1 m-10">
+                  <h3 className="text-4xl text-center font-bold text-emerald-200">HD+</h3>
+                  <h5 className="text-base my-4 font-bold">Images and videos</h5>
+              </div>
+              <div className="flex flex-col  p-6 md:p-1  m-10">
+                  <h3 className="text-4xl text-center font-bold text-emerald-200">Easy</h3>
+                  <h5 className="text-base my-4 font-bold">Well organized movie categorization</h5>
+              </div>
+            </div>
+          </div>
     </div>
   );
 }
