@@ -74,7 +74,7 @@ export default function Landing() {
       </div>
       
     </div>
-    <div className="text-white w-full bg-gradient-to-r from-violet-500 to-fuchsia-500">
+    <div className="text-white w-full bg-gradient-to-r ">
             <h1 className="text-4xl text-center p-5 my-8 font-bold ">What we <br /> <span className="underline decoration-sky-500">Actually offer</span> </h1>
             <div className="flex flex-wrap justify-around md:flex-nowrap w-5/6 mx-auto">
               <div className="flex flex-col  p-6 md:p-1 m-10">
@@ -91,10 +91,28 @@ export default function Landing() {
               </div>
               <div className="flex flex-col  p-6 md:p-1  m-10">
                   <h3 className="text-4xl text-center font-bold text-emerald-200">Easy</h3>
-                  <h5 className="text-base my-4 font-bold">Well organized movie categorization</h5>
+                  <h5 className="text-base my-4 text-center font-bold">Well organized movie categorization</h5>
               </div>
             </div>
-          </div>
+    </div>
+    <div className="w-full">
+      <h1 className="text-center my-10 p-4 text-3xl md:text-4xl font-bold text-cyan-200 "> <span className="border-t-4 border-b-4 py-2 px-6 border-l-zinc-500 border-b-pink-500 border-t-sky-500">Coming Soon</span></h1>
+      <div className="md:w-2/3 mx-auto md:hidden" >
+      <iframe width="375" height="270"
+        src="https://www.youtube.com/embed/bKh2G73gCCs?playlist=bKh2G73gCCs&loop=0&controls=1">
+        </iframe>
+      </div>
+      <div className="w-2/3 mx-auto hidden md:block">
+      <iframe width="1280" height="720"
+        src="https://www.youtube.com/embed/bKh2G73gCCs?playlist=bKh2G73gCCs&loop=0&controls=1">
+        </iframe>
+      </div>
+    </div>
+
+    <div className="w-full text-white text-center">
+      <h2>Love to get updates?</h2>
+      <p>Subscribe to get new updates on movies and content straight to your inbox. No Spam! No Ads!</p>
+    </div>
     </div>
   );
 }
