@@ -110,8 +110,19 @@ export default function Landing() {
     </div>
 
     <div className="w-full text-white text-center">
-      <h2>Love to get updates?</h2>
-      <p>Subscribe to get new updates on movies and content straight to your inbox. No Spam! No Ads!</p>
+      <div className="my-20">
+      <h2 className="text-4xl font-bold py-2 mt-20 mb-9">Love to get updates?</h2>
+      <p className="text-sm text-gray-400">Subscribe to get new updates on movies and content straight to your inbox. No Spam! No Ads!</p>
+      
+        <div className="my-16">
+           <form action="" className="">
+            <input className="bg-black border-2 rounded-tl text-white rounded-bl border-pink-500 py-3 px-7" type="email" name="" id="" placeholder="Enter your Email" />
+            <button className="py-3 bg-pink-500 px-4 rounded-tr rounded-br border-2 border-pink-500">Subscribe</button>
+            </form>
+        </div>
+         
+        
+    </div>
     </div>
     </div>
   );
