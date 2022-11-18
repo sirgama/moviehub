@@ -97,13 +97,13 @@ export default function Landing() {
     </div>
     <div className="w-full">
       <h1 className="text-center my-10 p-4 text-3xl md:text-4xl font-bold text-cyan-200 "> <span className="border-t-4 border-b-4 py-2 px-6 border-l-zinc-500 border-b-pink-500 border-t-sky-500">Coming Soon</span></h1>
-      <div className="md:w-2/3 mx-auto md:hidden" >
+      <div className="md:w-2/3 mx-auto lg:hidden" >
       <iframe width="375" height="270"
         src="https://www.youtube.com/embed/bKh2G73gCCs?playlist=bKh2G73gCCs&loop=0&controls=1">
         </iframe>
       </div>
-      <div className="w-2/3 mx-auto hidden md:block">
-      <iframe width="1280" height="720"
+      <div className="w-4/6 mx-auto hidden lg:block">
+      <iframe width="1020" height="640"
         src="https://www.youtube.com/embed/bKh2G73gCCs?playlist=bKh2G73gCCs&loop=0&controls=1">
         </iframe>
       </div>
@@ -120,8 +120,6 @@ export default function Landing() {
             <button className="py-3 bg-pink-500 px-4 rounded-tr rounded-br border-2 border-pink-500">Subscribe</button>
             </form>
         </div>
-         
-        
     </div>
     </div>
     </div>
