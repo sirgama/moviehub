@@ -7,31 +7,21 @@ import Movieheader from '../components/Movieheader'
 
 export default function MovieDetail(props) {
 
-    const [movies, setMovies] = useState([])
+    const [singleMovie, setSingleMovie] = useState([])
     const {movie_id} = useParams()
+    console.log(singleMovie)
     
-    const getMovies = () =>{
-        axios.get(requests.requestPopular).then((res) => {
+    const getMovie = () =>{
+        axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${food}&language=en-US`).then((res) => {
 
             const moviesfetch = res.data
-            setMovies(moviesfetch.results)
+            setSingleMovie(moviesfetch)
         })
     }
  
     useEffect(()=> {
-       getMovies()
+       getMovie()
     }, [])
-
-    let singleMovie = movies[Math.floor(Math.random() * movies.length)]
-    const truncateString = (str, num) =>{
-        if(str?.length > num){
-            return str.slice(0, num) + '...'
-        }
-        else{
-            return str
-        }
-    }
-
 
   return (
     <div>
@@ -58,7 +48,7 @@ export default function MovieDetail(props) {
                 <button className='text-white   px-5 py-2 ml-4 font-medium'>Read more ...</button>
             </div>
             <p className='text-gray-400 text-sm'>Release date: <span className='font-bold'>{singleMovie?.release_date}</span></p>
-            {/* <p className="w-full text-gray-100 text-sm py-2 md:max-w-[70%] lg:max-w-[50%] xl:max-w-30%">{truncateString(singleMovie?.overview, 150)}</p> */}
+            {/* <p className="w-full text-gray-100 text-sm py-2 md:max-w-[70%] lg:max-w-[50%] xl:max-w-30%">{truncateString(movie?.overview, 150)}</p> */}
         </div>
         </div>
     </div>
