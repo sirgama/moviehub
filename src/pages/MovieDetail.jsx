@@ -58,13 +58,13 @@ export default function MovieDetail(props) {
     console.log(credits)
 
     const mvg = singleMovie?.genres
-    console.log(videos)
+
    
     let getYoutube = videos.filter(function (el) {
         return el.type === 'Trailer'
     })
     let trailer = getYoutube[0]
-    console.log(trailer)
+
   return (
     <div>
       <div className="w-full h-screen md:h-[650px] text-white">
@@ -82,17 +82,32 @@ export default function MovieDetail(props) {
         <div className='md:mx-20 md:px-10 md:my-0 my-10'>
         <h1 className='text-2xl md:text-5xl font-semibold '>{singleMovie?.title}</h1>
             <div className='my-4'>
-                <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg? mvg.map(genre => <div className='px-5 py-1 border border-white rounded-full inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer'>{genre.name}</div>) : null}</span> <span className="text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl'>{time}h</span></p>
+                <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg? mvg.map(genre => <div className='px-5 py-1 border border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer'>{genre.name}</div>) : null}</span> <span className="text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl'>{time}h</span></p>
                 
             </div>
+            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{singleMovie?.tagline}</p>
             <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{singleMovie?.overview}</p>
             <div className="my-0">
             <button className='text-gray-100 md:my-6 '>Rating: <span className='text-5xl font-semibold'>{Math.round(singleMovie?.vote_average)}</span>/ 10 </button>
                 <button className='text-gray-100 px-2 md:px-10 '>Votes: <span className='text-sm font-extrabold md:text-3xl'>{singleMovie?.vote_count}</span></button>
             </div>
-            <div className='my-4'>
-                <button className='text-black border bg-pink-300 px-5 py-1'>Play</button>
-                <button className='text-white   px-5 py-2 ml-4 font-medium'>Read more ...</button>
+            <div className='my-4 flex flex-row flex-wrap rounded-lg border-4'>
+                <div className='text-white  py-2 mx-auto flex flex-col'>
+                    <button className='px-10'>Status</button>
+                    <button className='font-semibold'>{singleMovie?.status}</button>
+                </div>
+                <div className='text-white  py-2 mx-auto flex flex-col'>
+                    <button className='px-10'>Budget</button>
+                    <button className='font-semibold'>${singleMovie?.budget}</button>
+                </div>
+                <div className='text-white  py-2 mx-auto flex flex-col'>
+                    <button className='px-10'>Revenue</button>
+                    <button className='font-semibold'>${singleMovie?.revenue}</button>
+                </div>
+                <div className='text-white  py-2 mx-auto flex flex-col'>
+                    <button className='px-10'>Website</button>
+                    <button className='font-semibold text-sm'>{singleMovie?.homepage}</button>
+                </div>
             </div>
         </div>
         </div>
