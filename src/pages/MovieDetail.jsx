@@ -10,22 +10,42 @@ import Datecalc from '../components/Datecalc'
 export default function MovieDetail(props) {
 
     const [singleMovie, setSingleMovie] = useState([])
+    const [videos, setVideos] = useState([])
+    const [credits, setCredits] = useState([])
     const {movie_id} = useParams()
     console.log(singleMovie)
-   let kamovie = []
 
     const getMovie = () =>{
         axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${food}&language=en-US`).then((res) => {
-
             const moviesfetch = res.data
             setSingleMovie(moviesfetch)
-            kamovie = moviesfetch
         })
     }
+    const getVideos = () =>{
+        axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${food}&language=en-US`).then((res) => {
+            const videosfetch = res.data
+            setVideos(videosfetch)
+        })
+    }
+    const getCredits = () =>{
+        axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${food}&language=en-US`).then((res) => {
+            const creditsfetch = res.data
+            setCredits(creditsfetch)
+        })
+    }
+ 
  
     useEffect(()=> {
        getMovie()
     }, [])
+    useEffect(()=> {
+        getVideos()
+     }, [])
+
+     useEffect(()=> {
+        getCredits()
+     }, [])
+
 
     const moviedate = singleMovie?.release_date
     let yr = new Date(moviedate)
