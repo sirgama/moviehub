@@ -64,6 +64,7 @@ export default function MovieDetail(props) {
         return el.type === 'Trailer'
     })
     let trailer = getYoutube[0]
+    console.log(trailer)
   return (
     <div>
       <div className="w-full h-screen md:h-[650px] text-white">
@@ -74,7 +75,7 @@ export default function MovieDetail(props) {
         <div>
         <div className='w-[240px] sm:w-[240px] lg:w-[280px] h-96 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
             <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-2xl shadow-pink-500/20' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path}`} alt='single ' />
-            <button className="border text-center inline-block md:my-4 w-[210px] md:w-[250px] p-2 my-6 md:px-4 rounded-md bg-gray-100 text-black font-semibold"><AiFillYoutube className='inline' /> Play Trailer</button>
+            <a target="_blank" href={`https://www.youtube.com/watch?v=${trailer?.key}`}><button className="border text-center inline-block md:my-4 w-[210px] md:w-[250px] p-2 my-6 md:px-4 rounded-md bg-gray-100 text-black font-semibold"><AiFillYoutube className='inline' /> Play Trailer</button></a>
         </div>
         </div>
             
@@ -97,7 +98,7 @@ export default function MovieDetail(props) {
         </div>
     </div>
     </div>
-
+        
     </div>
   )
 }
