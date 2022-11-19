@@ -12,24 +12,35 @@ export default function MovieDetail(props) {
     const [singleMovie, setSingleMovie] = useState([])
     const {movie_id} = useParams()
     console.log(singleMovie)
-    
+   let kamovie = []
 
     const getMovie = () =>{
         axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${food}&language=en-US`).then((res) => {
 
             const moviesfetch = res.data
             setSingleMovie(moviesfetch)
+            kamovie = moviesfetch
         })
     }
  
     useEffect(()=> {
        getMovie()
-    }, [`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${food}&language=en-US`])
+    }, [])
 
     const moviedate = singleMovie?.release_date
     let yr = new Date(moviedate)
     let date = Datecalc(yr)
     console.log(date)
+
+    const movieTime =  singleMovie?.runtime
+    let time = Math.round(movieTime / 60)
+    console.log(time)
+
+    const mvg = singleMovie?.genres
+    console.log(mvg)
+    // const genres = mvg.map(genre => (
+    //     <div className='px-5 py-1 border border-white rounded-full'>{genre.name}</div>
+    // ))
     
   return (
     <div>
@@ -48,16 +59,18 @@ export default function MovieDetail(props) {
         <div className='md:mx-20 md:px-10'>
         <h1 className='text-2xl md:text-5xl font-semibold '>{singleMovie?.title}</h1>
             <div className='my-4'>
-                <p className='text-gray-00 text-base'><span className='font-semibold text-white'></span></p>
-                <button className='text-gray-100 '>Average rating: <span className='text-sm font-semibold'>{singleMovie?.vote_average}</span> </button>
-                <button className='text-gray-100 px-2 '>Votes: <span className='text-sm font-extrabold'>{singleMovie?.vote_count}</span></button>
+                <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg? mvg.map(genre => <div className='px-5 py-1 border border-white rounded-full inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer'>{genre.name}</div>) : null}</span> <span className="text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl'>{time}h</span></p>
+                
+            </div>
+            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{singleMovie?.overview}</p>
+            <div className="my-0">
+            <button className='text-gray-100 md:my-6 '>Rating: <span className='text-5xl font-semibold'>{Math.round(singleMovie?.vote_average)}</span>/ 10 </button>
+                <button className='text-gray-100 px-2 md:px-10 '>Votes: <span className='text-sm font-extrabold md:text-3xl'>{singleMovie?.vote_count}</span></button>
             </div>
             <div className='my-4'>
                 <button className='text-black border bg-pink-300 px-5 py-1'>Play</button>
                 <button className='text-white   px-5 py-2 ml-4 font-medium'>Read more ...</button>
             </div>
-            <p className='text-gray-00 text-sm'>Release date: <span className='font-semibold text-white'>{singleMovie?.release_date}</span></p>
-            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 ">{singleMovie?.overview}</p>
         </div>
         </div>
     </div>
