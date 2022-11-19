@@ -14,7 +14,7 @@ export default function Home() {
       <Row rowId='2' title='Whats Popular' fetchUrl={requests.requestPopular}/>
       <Row rowId='3' title='Top Rated' fetchUrl={requests.requestTopRated}/>
       <Row rowId='4' title='Trending Today' fetchUrl={requests.requestTrending}/>
-      
+
     </div>
   )
 }

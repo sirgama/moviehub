@@ -93,20 +93,20 @@ export default function MovieDetail(props) {
             </div>
             <div className='my-4 flex flex-row flex-wrap rounded-lg border-4'>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
-                    <button className='px-10'>Status</button>
-                    <button className='font-semibold'>{singleMovie?.status}</button>
+                    <button className='px-10 md:text-2xl md:my-2'>Status</button>
+                    <button className='font-semibold md:text-2xl md:my-2'>{singleMovie?.status}</button>
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
-                    <button className='px-10'>Budget</button>
-                    <button className='font-semibold'>${singleMovie?.budget}</button>
+                    <button className='px-10 md:text-2xl md:my-2'>Budget</button>
+                    <button className='font-semibold md:text-2xl md:my-2'>${singleMovie?.budget}</button>
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
-                    <button className='px-10'>Revenue</button>
-                    <button className='font-semibold'>${singleMovie?.revenue}</button>
+                    <button className='px-10 md:text-2xl md:my-2'>Revenue</button>
+                    <button className='font-semibold md:text-2xl md:my-2'>${singleMovie?.revenue}</button>
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
-                    <button className='px-10'>Website</button>
-                    <button className='font-semibold text-sm'>{singleMovie?.homepage}</button>
+                    <button className='px-10 md:text-2xl md:my-2'>Website</button>
+                    <a href={singleMovie?.homepage}><button className='font-semibold text-sm md:text-2xl md:my-2'>{singleMovie?.homepage}</button></a>
                 </div>
             </div>
         </div>
