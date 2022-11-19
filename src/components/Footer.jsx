@@ -4,7 +4,7 @@ import Logo from '../assets/logo.svg'
 export default function Footer() {
   return (
     <div>
-      <footer className="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+      <footer className="p-4 bg-gray-900 rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
     <div className="sm:flex sm:items-center sm:justify-between">
         <a href="https://movies.sirgama.dev.com/" className="flex items-center mb-4 sm:mb-0">
             <img src={Logo} className="mr-3 h-8" alt="MovieHub Logo" />
@@ -26,7 +26,7 @@ export default function Footer() {
         </ul>
     </div>
     <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://movies.sirgama.dev.com/" className="hover:underline">MovieHub by SirGama™</a>. All Rights Reserved.
+    <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://movies.sirgama.dev.com/" className="hover:underline">MovieHub by SirGama™</a>. 
     </span>
 </footer>
     </div>

@@ -26,7 +26,7 @@ export default function Login() {
    
   return (
     <div>
-        <div className="bg-white dark:bg-gray-900">
+        <div className="bg-gray-900 dark:bg-gray-900">
         <div className="flex justify-center h-screen logon">
             <div className="hidden bg-cover lg:block lg:w-4/6" >
                 {/* <div className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">

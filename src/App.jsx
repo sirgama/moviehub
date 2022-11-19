@@ -10,6 +10,7 @@ import Account from "./pages/Account";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Nav from "./components/Nav";
 import MovieDetail from "./pages/MovieDetail";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/account' element={<ProtectedRoute><Account /></ProtectedRoute> } />
         <Route path='/details/:movie_id' element={<ProtectedRoute><MovieDetail /></ProtectedRoute>} />
       </Routes>
+      <Footer />
       </BrowserRouter>
       </AuthContextProvider>
     </>
