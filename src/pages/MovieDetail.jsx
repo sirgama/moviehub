@@ -24,7 +24,7 @@ export default function MovieDetail(props) {
     const getVideos = () =>{
         axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${food}&language=en-US`).then((res) => {
             const videosfetch = res.data
-            setVideos(videosfetch)
+            setVideos(videosfetch.results)
         })
     }
     const getCredits = () =>{
@@ -54,14 +54,15 @@ export default function MovieDetail(props) {
 
     const movieTime =  singleMovie?.runtime
     let time = Math.round(movieTime / 60)
-    console.log(time)
+    console.log(credits)
 
     const mvg = singleMovie?.genres
-    console.log(mvg)
-    // const genres = mvg.map(genre => (
-    //     <div className='px-5 py-1 border border-white rounded-full'>{genre.name}</div>
-    // ))
-    
+    console.log(videos)
+   
+    let getYoutube = videos.filter(function (el) {
+        return el.type === 'Trailer'
+    })
+    let trailer = getYoutube[0]
   return (
     <div>
       <div className="w-full h-screen md:h-[650px] text-white">
