@@ -5,6 +5,7 @@ import { food } from '../openkey'
 import {useParams} from "react-router-dom"
 import Movieheader from '../components/Movieheader'
 import Datecalc from '../components/Datecalc'
+import {AiFillYoutube} from 'react-icons/ai'
 
 
 export default function MovieDetail(props) {
@@ -71,13 +72,13 @@ export default function MovieDetail(props) {
         <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`} alt={singleMovie?.title} />
         <div className='absolute top-[5%] md:top-[10%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap'>
         <div>
-        <div className='w-[240px] sm:w-[240px] lg:w-[280px] h-96 inline-block cursor-pointer relative p-3 md:p-0'>
+        <div className='w-[240px] sm:w-[240px] lg:w-[280px] h-96 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
             <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-2xl shadow-pink-500/20' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path}`} alt='single ' />
-            
-            </div>
+            <button className="border text-center inline-block md:my-4 w-[210px] md:w-[250px] p-2 my-6 md:px-4 rounded-md bg-gray-100 text-black font-semibold"><AiFillYoutube className='inline' /> Play Trailer</button>
+        </div>
         </div>
             
-        <div className='md:mx-20 md:px-10'>
+        <div className='md:mx-20 md:px-10 md:my-0 my-10'>
         <h1 className='text-2xl md:text-5xl font-semibold '>{singleMovie?.title}</h1>
             <div className='my-4'>
                 <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg? mvg.map(genre => <div className='px-5 py-1 border border-white rounded-full inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer'>{genre.name}</div>) : null}</span> <span className="text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl'>{time}h</span></p>
