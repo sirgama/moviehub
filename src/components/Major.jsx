@@ -34,7 +34,7 @@ export default function Major() {
     <div className='w-full h-full'>
         <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black  "></div>
         <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`} alt={singleMovie?.title} />
-        <div className='absolute top-[10%] md:top-[20%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap justify-center items-center'>
+        <div className='absolute top-[40%]  md:top-[30%] md:left-[20%] p-2 m-5 flex flex-row flex-wrap sm:flex-nowrap justify-center items-center'>
         {/* <div>
         <div className='w-[240px] sm:w-[240px] lg:w-[280px] h-96 inline-block cursor-pointer relative p-3'>
             <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-3xl' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path}`} alt='single ' />
@@ -45,7 +45,7 @@ export default function Major() {
         <div className='md:mx-20 md:px-20'>
 
             <form action="">
-                <input className='bg-transparent border-b-4 border-pink-700 placeholder:text-white placeholder:text-xl md:w-[600px] py-2 focus:outline-none block w-full  ' type="text" name="" id="" placeholder='Search for a movie or TV show' />
+                <input className='bg-transparent border-b-4 border-pink-700 placeholder:text-white placeholder:text-md  md:w-[600px] py-2 focus:outline-none block w-[300px]' type="text" name="" id="" placeholder='Search for a movie or TV show' />
             </form>
         
             <div className='my-4'>
