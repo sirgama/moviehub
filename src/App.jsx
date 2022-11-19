@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Account from "./pages/Account";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Nav from "./components/Nav";
+import MovieDetail from "./pages/MovieDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/account' element={<ProtectedRoute><Account /></ProtectedRoute> } />
+        <Route path='/details/:movie_id' element={<ProtectedRoute><MovieDetail /></ProtectedRoute>} />
       </Routes>
       </BrowserRouter>
       </AuthContextProvider>
