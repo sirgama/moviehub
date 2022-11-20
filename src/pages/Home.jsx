@@ -35,12 +35,12 @@ export default function Home() {
       <Major />
       <div>
       <Tabs id="custom-animation" value="movies">
-      <TabsHeader className='w-5/6 md:w-1/2 mx-auto'>
+      <TabsHeader className='w-5/6 md:w-1/3 mx-auto'>
         
-          <Tab value='movies' className='text-gray-900 font-bold py-2 md:text-2xl md:py-3 m-1'>
+          <Tab value='movies' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
             Movies
           </Tab>
-          <Tab value='shows' className='text-gray-900 font-bold py-2 md:text-2xl md:py-3 m-1'>
+          <Tab value='shows' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
            TV Shows
           </Tab>
       </TabsHeader>
