@@ -49,14 +49,14 @@ export default function Major() {
             </form>
         
             <div className='my-4'>
-            <p className='text-sm md:text-sm font-semibold '><span className="text-gray-400">Background image: </span> {singleMovie?.title}</p>
+            <p className='text-sm md:text-sm font-semibold '><span className="text-gray-400">Background image movie: </span> {singleMovie?.title && singleMovie?.title}</p>
               
             </div>
             {/* <div className='my-4'>
                 <button className='text-black border bg-pink-300 px-5 py-1'>Play</button>
                 <button className='text-white   px-5 py-2 ml-4 font-medium'>Read more ...</button>
             </div> */}
-            <p className='text-gray-400 text-sm'>Release date: <span className='font-bold text-white'>{singleMovie?.release_date}</span></p>
+            <p className='text-gray-400 text-sm'>Release date: <span className='font-bold text-white'>{singleMovie?.release_date && singleMovie?.release_date}</span></p>
             {/* <p className="w-full text-gray-100 text-sm py-2 md:max-w-[70%] lg:max-w-[50%] xl:max-w-30%">{truncateString(singleMovie?.overview, 150)}</p> */}
         </div>
         </div>

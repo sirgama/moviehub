@@ -74,39 +74,39 @@ export default function MovieDetail(props) {
         <div className='absolute top-[5%] md:top-[10%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap'>
         <div>
         <div className='w-[240px] sm:w-[240px] lg:w-[280px] h-96 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
-            <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-2xl shadow-pink-500/20' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path}`} alt='single ' />
+            <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-2xl shadow-pink-500/20' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path && singleMovie?.poster_path}`} alt='single ' />
             <a target="_blank" href={`https://www.youtube.com/watch?v=${trailer?.key}`}><button className="border text-center inline-block md:my-4 w-[210px] md:w-[250px] p-2 my-6 md:px-4 rounded-md bg-gray-100 text-black font-semibold"><AiFillYoutube className='inline' /> Play Trailer</button></a>
         </div>
         </div>
             
         <div className='md:mx-20 md:px-10 md:my-0 my-10'>
-        <h1 className='text-2xl md:text-5xl font-semibold '>{singleMovie?.title}</h1>
+        <h1 className='text-2xl md:text-5xl font-semibold '>{singleMovie?.title && singleMovie?.title}</h1>
             <div className='my-4'>
-                <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg? mvg.map(genre => <div className='px-5 py-1 border border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer'>{genre.name}</div>) : null}</span> <span className="text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl'>{time}h</span></p>
+                <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg && mvg.map(genre => <div className='px-5 py-1 border border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer'>{genre.name}</div>)}</span> <span className="text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl'>{time}h</span></p>
                 
             </div>
-            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{singleMovie?.tagline}</p>
-            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{singleMovie?.overview}</p>
+            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{singleMovie?.tagline && singleMovie?.tagline}</p>
+            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{singleMovie?.overview && singleMovie?.overview}</p>
             <div className="my-0">
-            <button className='text-gray-100 md:my-6 '>Rating: <span className='text-5xl font-semibold'>{Math.round(singleMovie?.vote_average)}</span>/ 10 </button>
-                <button className='text-gray-100 px-2 md:px-10 '>Votes: <span className='text-sm font-extrabold md:text-3xl'>{singleMovie?.vote_count}</span></button>
+            <button className='text-gray-100 md:my-6 '>Rating: <span className='text-5xl font-semibold'>{singleMovie?.vote_average && Math.round(singleMovie?.vote_average)}</span>/ 10 </button>
+                <button className='text-gray-100 px-2 md:px-10 '>Votes: <span className='text-sm font-extrabold md:text-3xl'>{singleMovie?.vote_count && singleMovie?.vote_count }</span></button>
             </div>
             <div className='my-4 flex flex-row flex-wrap rounded-lg border-4'>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
                     <button className='px-10 md:text-2xl md:my-2'>Status</button>
-                    <button className='font-semibold md:text-2xl md:my-2'>{singleMovie?.status}</button>
+                    <button className='font-semibold md:text-2xl md:my-2'>{singleMovie?.status && singleMovie?.status}</button>
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
                     <button className='px-10 md:text-2xl md:my-2'>Budget</button>
-                    <button className='font-semibold md:text-2xl md:my-2'>${singleMovie?.budget}</button>
+                    <button className='font-semibold md:text-2xl md:my-2'>${singleMovie?.budget && singleMovie?.budget }</button>
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
                     <button className='px-10 md:text-2xl md:my-2'>Revenue</button>
-                    <button className='font-semibold md:text-2xl md:my-2'>${singleMovie?.revenue}</button>
+                    <button className='font-semibold md:text-2xl md:my-2'>${singleMovie?.revenue && singleMovie?.revenue}</button>
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
                     <button className='px-10 md:text-2xl md:my-2'>Website</button>
-                    <a href={singleMovie?.homepage}><button className='font-semibold text-sm md:text-2xl md:my-2'>{singleMovie?.homepage}</button></a>
+                    <a href={singleMovie?.homepage && singleMovie?.homepage}><button className='font-semibold text-sm md:text-2xl md:my-2'>{singleMovie?.homepage && singleMovie?.homepage }</button></a>
                 </div>
             </div>
         </div>
