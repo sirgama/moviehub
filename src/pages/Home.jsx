@@ -1,6 +1,7 @@
 import React from 'react'
 import Major from '../components/Major'
 import Row from '../components/Row'
+import TvRow from '../components/TvRow'
 import requests from '../Requests'
 import {
   Tabs,
@@ -60,7 +61,10 @@ export default function Home() {
         <Row rowId='4' title='Trending Today' fetchUrl={requests.requestTrending}/>
           </TabPanel>
           <TabPanel value='shows'>
-       
+        <TvRow rowId='11' title='On Tv Today' fetchUrl={requests.tvToday}/>
+        <TvRow rowId='12' title='ON AIR' fetchUrl={requests.tvOnair}/>
+        <TvRow rowId='13' title='Popular TV Shows' fetchUrl={requests.tvPopular}/>
+        <TvRow rowId='14' title='Top Rated Shows' fetchUrl={requests.tvToprated}/>
           </TabPanel>
 
       </TabsBody>

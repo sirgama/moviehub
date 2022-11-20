@@ -10,6 +10,7 @@ import Account from "./pages/Account";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Nav from "./components/Nav";
 import MovieDetail from "./pages/MovieDetail";
+import TvDetail from "./pages/TvDetail";
 import Footer from "./components/Footer";
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/account' element={<ProtectedRoute><Account /></ProtectedRoute> } />
-        <Route path='/details/:movie_id' element={<ProtectedRoute><MovieDetail /></ProtectedRoute>} />
+        <Route path='/movie/:movie_id' element={<ProtectedRoute><MovieDetail /></ProtectedRoute>} />
+        <Route path='/tv/show/:tv__id' element={<ProtectedRoute><TvDetail /></ProtectedRoute>} />
       </Routes>
       <Footer />
       </BrowserRouter>
