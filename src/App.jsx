@@ -30,7 +30,7 @@ function App() {
         <Route path='/movie/:movie_id' element={<ProtectedRoute><MovieDetail /></ProtectedRoute>} />
         <Route path='/tv/show/:tv_id' element={<ProtectedRoute><TvDetail /></ProtectedRoute>} />
       </Routes>
-      <Footer />
+      
       </BrowserRouter>
       </AuthContextProvider>
     </>
