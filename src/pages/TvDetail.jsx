@@ -67,7 +67,7 @@ export default function TvDetail(props) {
         <div className='md:mx-20 md:px-10 md:my-0 mt-10'>
         <h1 className='text-2xl md:text-5xl font-semibold '>{tvShow?.name && tvShow?.name}</h1>
             <div className='my-4'>
-                <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg && mvg.map(genre => <div className='px-1 md:px-5 py-1 border border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer text-xs md:text-xl'>{genre.name}</div>)}</span> <span className="text-sm md:text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl text-xs'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl text-xs'>{time}Mins</span></p>
+                <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg && mvg.map(genre => <div className='px-1 md:px-5 py-1 border-2 border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer text-xs md:text-xl'>{genre.name}</div>)}</span> <span className="text-sm md:text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl text-xs'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl text-xs'>{time && `${time} Mins` }</span></p>
                 
             </div>
             <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{tvShow?.tagline && tvShow?.tagline}</p>
@@ -83,13 +83,13 @@ export default function TvDetail(props) {
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
                     <button className='px-10 md:text-2xl md:my-2'>Seasons</button>
-                    <button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.seasons && tvShow?.seasons.length }</button>
+                    <button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.seasons && tvShow?.number_of_seasons }</button>
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
-                    <button className='md:px-10 md:text-2xl md:my-2'>Type</button>
-                    <button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.type && tvShow?.type}</button>
+                    <button className='md:px-10 md:text-2xl md:my-2'>Episodes</button>
+                    <button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.type && tvShow?.number_of_episodes}</button>
                 </div>
-                <div className='text-white  py-2 mx-auto flex flex-col'>
+                <div className='text-white hidden py-2 mx-auto md:flex flex-col'>
                     <button className='md:px-10 md:text-2xl md:my-2'>Website</button>
                     <a href={tvShow?.homepage && tvShow?.homepage}><button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.homepage && <div className=''><AiOutlineLink className='text-center text-sm md:text-2xl mx-20'/> </div> }</button></a>
                 </div>
@@ -100,14 +100,20 @@ export default function TvDetail(props) {
         </div>
 
         <div className={`w-screen md:w-full ${overview? 'mt-96' : 'mt-40'}  md:mt-40`}>
-        <Tabs id="custom-animation" className='mt-20 md:mt-10' value="movies">
-        <TabsHeader className='w-screen md:w-1/3 mx-auto mt-2 md:mt-0'>
+        <Tabs id="custom-animation" className='mt-20 md:mt-10' value="cast">
+        <TabsHeader className='w-11/12 md:w-1/3 mx-auto mt-2 md:mt-0'>
             
-            <Tab value='movies' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
-                Movies
+            <Tab value='cast' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+                Cast
             </Tab>
-            <Tab value='shows' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
-            TV Shows
+            <Tab value='reviews' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+            Reviews
+            </Tab>
+            <Tab value='backdrops' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+                Backdrops
+            </Tab>
+            <Tab value='posters' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+            Posters
             </Tab>
         </TabsHeader>
         <TabsBody
@@ -117,10 +123,16 @@ export default function TvDetail(props) {
             }}
         >
         
-            <TabPanel value='movies' active>
+            <TabPanel value='cast' active>
             
             </TabPanel>
-            <TabPanel value='shows'>
+            <TabPanel value='reviews'>
+            
+            </TabPanel>
+            <TabPanel value='backdrops'>
+            
+            </TabPanel>
+            <TabPanel value='posters'>
             
             </TabPanel>
 
