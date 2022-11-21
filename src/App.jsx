@@ -28,7 +28,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/account' element={<ProtectedRoute><Account /></ProtectedRoute> } />
         <Route path='/movie/:movie_id' element={<ProtectedRoute><MovieDetail /></ProtectedRoute>} />
-        <Route path='/tv/show/:tv__id' element={<ProtectedRoute><TvDetail /></ProtectedRoute>} />
+        <Route path='/tv/show/:tv_id' element={<ProtectedRoute><TvDetail /></ProtectedRoute>} />
       </Routes>
       <Footer />
       </BrowserRouter>
