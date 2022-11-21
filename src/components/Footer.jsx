@@ -1,33 +1,32 @@
 import React from 'react'
 import Logo from '../assets/logo.svg'
+import {FaTelegram, FaTwitter} from 'react-icons/fa'
 
 export default function Footer() {
   return (
     <div>
-      <footer className="p-4 bg-gray-900 rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+      <footer className="p-4 bg-black rounded-lg shadow md:px-6  dark:bg-gray-900 mt-20">
+      <hr className=" border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 " />
     <div className="sm:flex sm:items-center sm:justify-between">
         <a href="https://movies.sirgama.dev.com/" className="flex items-center mb-4 sm:mb-0">
             <img src={Logo} className="mr-3 h-8" alt="MovieHub Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+        
+        <span className="block text-sm text-gray-500 sm:text-center font-bold dark:text-gray-400">© 2022 <a href="https://movies.sirgama.dev/" className="hover:underline">MovieHub by SirGama™</a>
+    </span>
+    <ul className="flex flex-wrap items-end mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+           
             <li>
-                <a href="/login" className="mr-4 hover:underline md:mr-6 ">Login</a>
+                <a href="https://t.me/sirgama" target='_blank' className="p-4 sm:mr-10 text-3xl mx-6"><FaTelegram /></a>
             </li>
             <li>
-                <a href="/signup" className="mr-4 hover:underline md:mr-6">Sign up</a>
-            </li>
-            <li>
-                <a href="https://twitter.com/sirgama_" className="mr-4 hover:underline md:mr-6 ">Social</a>
-            </li>
-            <li>
-                <a href="mailto:contact@sirgama.dev" className="hover:underline">Contact</a>
+                <a href="https://twitter.com/sirgama_" target='_blank' className=" sm:mr-10 p-4 text-3xl mx-10"><FaTwitter /></a>
             </li>
         </ul>
     </div>
-    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://movies.sirgama.dev.com/" className="hover:underline">MovieHub by SirGama™</a>. 
-    </span>
+    
+    
 </footer>
     </div>
   )

@@ -5,7 +5,7 @@ import { food } from '../openkey'
 import {useParams} from "react-router-dom"
 import Movieheader from '../components/Movieheader'
 import Datecalc from '../components/Datecalc'
-import {AiFillYoutube} from 'react-icons/ai'
+import {AiFillYoutube, AiOutlineLink} from 'react-icons/ai'
 
 
 export default function MovieDetail(props) {
@@ -73,8 +73,8 @@ export default function MovieDetail(props) {
         <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`} alt={singleMovie?.title} />
         <div className='absolute top-[5%] md:top-[10%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap'>
         <div>
-        <div className='w-[240px] sm:w-[240px] lg:w-[280px] h-96 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
-            <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-2xl shadow-pink-500/20' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path && singleMovie?.poster_path}`} alt='single ' />
+        <div className='w-[280px] sm:w-[240px] lg:w-[280px] h-96 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
+            <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-xl shadow-pink-900/20' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path && singleMovie?.poster_path}`} alt='single ' />
             <a target="_blank" href={`https://www.youtube.com/watch?v=${trailer?.key}`}><button className="border text-center inline-block md:my-4 w-[210px] md:w-[250px] p-2 my-6 md:px-4 rounded-md bg-gray-100 text-black font-semibold"><AiFillYoutube className='inline' /> Play Trailer</button></a>
         </div>
         </div>
@@ -106,7 +106,7 @@ export default function MovieDetail(props) {
                 </div>
                 <div className='text-white  py-2 mx-auto flex flex-col'>
                     <button className='px-10 md:text-2xl md:my-2'>Website</button>
-                    <a href={singleMovie?.homepage && singleMovie?.homepage}><button className='font-semibold text-sm md:text-2xl md:my-2'>{singleMovie?.homepage && singleMovie?.homepage }</button></a>
+                    <a href={singleMovie?.homepage && singleMovie?.homepage}><button className='font-semibold text-sm md:text-xl md:my-2'>{singleMovie?.homepage && <div className='flex'><AiOutlineLink className='text-center text-2xl mx-20'/> </div> }</button></a>
                 </div>
             </div>
         </div>
