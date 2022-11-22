@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { food } from '../openkey'
-import {useParams} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 import Datecalc from '../components/Datecalc'
 import {AiFillYoutube, AiOutlineLink} from 'react-icons/ai'
 import {
@@ -149,7 +149,8 @@ export default function TvDetail(props) {
       </div>
 
         <div>
-            <Recommendations fetchUrl = {recommendations}/>
+            <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20">Recommendations</h1>
+             <Recommendations fetchUrl = {recommendations}/>
         </div>
     </div>
   )
