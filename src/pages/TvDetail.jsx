@@ -58,7 +58,7 @@ export default function TvDetail(props) {
          <div className="w-full h-screen md:h-[650px] text-white">
         <div className='w-full h-full'>
         <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black via-gray-900"></div>
-        <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${tvShow?.backdrop_path}`} alt={tvShow?.name} />
+        <img className='w-full h-full object-cover' src={tvShow?.backdrop_path && `https://image.tmdb.org/t/p/original${tvShow?.backdrop_path}`} alt={tvShow?.backdrop_path && tvShow?.name} />
         <div className='absolute top-[5%] md:top-[10%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap'>
         <div>
         <div className='w-[280px] sm:w-[240px] lg:w-[280px] h-80 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
@@ -104,7 +104,7 @@ export default function TvDetail(props) {
 
         <div className={`w-screen md:w-full ${overview? 'mt-96' : 'mt-40'}  md:mt-40`}>
         <Tabs id="custom-animation" className='mt-20 md:mt-10' value="cast">
-        <TabsHeader className='w-11/12 md:w-1/3 mx-auto mt-2 md:mt-0'>
+        <TabsHeader className='w-11/12 sm:w-2/3 mx-auto mt-2 md:mt-10'>
             
             <Tab value='cast' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
                 Cast
@@ -127,7 +127,10 @@ export default function TvDetail(props) {
         >
         
             <TabPanel value='cast' active>
-            <Actors fetchUrl={reqActors} />
+                <div className='md:p-10 w-full'>
+                     <Actors fetchUrl={reqActors} />
+                </div>
+           
             </TabPanel>
             <TabPanel value='reviews'>
             
