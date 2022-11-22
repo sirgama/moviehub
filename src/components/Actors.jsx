@@ -21,10 +21,10 @@ console.log(actors)
   return (
     <div className='flex flex-row flex-wrap sm:w-5/6 justify-center mx-auto'>
         {actors.map((actor) => (
-            <div className='w-[146px] h-[167px] sm:w-[166px] sm:h-[197px] p-4'>
-                <img className='w-full h-full rounded-2xl object-cover m-4 ' src={actor?.profile_path ? `https://image.tmdb.org/t/p/w500${actor?.profile_path}` : `${ProfileImage}`} alt="" />
+            <div className='w-[146px] h-[167px] sm:w-[166px] sm:h-[197px] p-6  relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
+                <img className='w-full h-full rounded-2xl object-cover m-2' src={actor?.profile_path ? `https://image.tmdb.org/t/p/w500${actor?.profile_path}` : `${ProfileImage}`} alt="" />
                 <h3 className=' text-xs sm:text-sm font-medium text-white text-center'>{actor.name}</h3>
-                <h3 className=''>{actor?.character} </h3>
+                
             </div>
         ))}
     </div>
