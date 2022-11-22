@@ -11,6 +11,7 @@ import {
     Tab,
     TabPanel,
   } from "@material-tailwind/react";
+import Actors from '../components/Actors'
 
 export default function TvDetail(props) {
 
@@ -34,6 +35,8 @@ export default function TvDetail(props) {
         })
     }
  
+    const reqActors = `https://api.themoviedb.org/3/tv/${tv_id}/credits?api_key=${food}&language=en-US`
+    
     useEffect(()=> {
         getTv()
      }, [])
@@ -124,7 +127,7 @@ export default function TvDetail(props) {
         >
         
             <TabPanel value='cast' active>
-            
+            <Actors fetchUrl={reqActors} />
             </TabPanel>
             <TabPanel value='reviews'>
             
@@ -139,6 +142,7 @@ export default function TvDetail(props) {
         </TabsBody>
         </Tabs>
       </div>
+
     </div>
   )
 }
