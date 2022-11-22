@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { food } from '../openkey'
+
 import {Link, useParams} from "react-router-dom"
 import Datecalc from '../components/Datecalc'
 import {AiFillYoutube, AiOutlineLink} from 'react-icons/ai'
@@ -14,14 +14,13 @@ import {
 import Actors from '../components/Actors'
 import Recommendations from '../components/Recommendations'
 
-export default function TvDetail(props) {
+export default function TvDetail({reqActors, recommendations, tv, tv_id, food, pathto }) {
 
     const [tvShow, setTvShow] = useState([])
     const [credits, setCredits] = useState([])
-    const {tv_id} = useParams()
 
     const getTv = () => {
-        axios.get(`https://api.themoviedb.org/3/tv/${tv_id}?api_key=${food}&language=en-US`).then((res) => {
+        axios.get(`https://api.themoviedb.org/3/${tv}${tv_id}?api_key=${food}&language=en-US`).then((res) => {
             const tvfetch = res.data
             setTvShow(tvfetch)
         })
@@ -30,14 +29,13 @@ export default function TvDetail(props) {
   
 
     const getCredits = () =>{
-        axios.get(`https://api.themoviedb.org/3/tv/${tv_id}/credits?api_key=${food}&language=en-US`).then((res) => {
+        axios.get(`https://api.themoviedb.org/3/${tv}${tv_id}/credits?api_key=${food}&language=en-US`).then((res) => {
             const creditsfetch = res.data.cast
             setCredits(creditsfetch)
         })
     }
  
-    const reqActors = `https://api.themoviedb.org/3/tv/${tv_id}/credits?api_key=${food}&language=en-US`
-    const recommendations = `https://api.themoviedb.org/3/tv/${tv_id}/recommendations?api_key=${food}&language=en-US&page=1`
+    
     
     useEffect(()=> {
         getTv()
@@ -150,7 +148,7 @@ export default function TvDetail(props) {
 
         <div>
             <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20">Recommendations</h1>
-             <Recommendations fetchUrl = {recommendations}/>
+             <Recommendations fetchUrl = {recommendations} pathto={pathto}/>
         </div>
     </div>
   )

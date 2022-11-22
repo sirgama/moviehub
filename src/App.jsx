@@ -12,6 +12,7 @@ import Nav from "./components/Nav";
 import MovieDetail from "./pages/MovieDetail";
 import TvDetail from "./pages/TvDetail";
 import Footer from "./components/Footer";
+import TV from "./pages/TV";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/account' element={<ProtectedRoute><Account /></ProtectedRoute> } />
         <Route path='/movie/:movie_id' element={<ProtectedRoute><MovieDetail /></ProtectedRoute>} />
-        <Route path='/tv/show/:tv_id' element={<ProtectedRoute><TvDetail /></ProtectedRoute>} />
+        <Route path='/tv/show/:tv_id' element={<ProtectedRoute><TV /></ProtectedRoute>} />
       </Routes>
       
       </BrowserRouter>
