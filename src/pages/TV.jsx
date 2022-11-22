@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import TvDetail from './TvDetail'
 import { food } from '../openkey'
@@ -6,6 +6,9 @@ import { food } from '../openkey'
 export default function TV() {
     const location = useLocation();
     const {tv_id} = useParams()
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     const obj = {
         reqActors: `https://api.themoviedb.org/3/tv/${tv_id}/credits?api_key=${food}&language=en-US`,
         recommendations: `https://api.themoviedb.org/3/tv/${tv_id}/recommendations?api_key=${food}&language=en-US&page=1`,

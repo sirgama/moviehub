@@ -18,6 +18,9 @@ export default function TvDetail({reqActors, recommendations, tv, tv_id, food, p
 
     const [tvShow, setTvShow] = useState([])
     const [credits, setCredits] = useState([])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     const getTv = () => {
         axios.get(`https://api.themoviedb.org/3/${tv}${tv_id}?api_key=${food}&language=en-US`).then((res) => {
