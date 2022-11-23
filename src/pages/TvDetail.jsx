@@ -56,6 +56,7 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
       const overview = tvShow?.overview
       const mvg = tvShow?.genres
       const time = tvShow?.episode_run_time
+      console.log(tvShow)
 
   return (
     <div>
@@ -116,12 +117,7 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
             <Tab value='reviews' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
             Reviews
             </Tab>
-            <Tab value='backdrops' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
-                Backdrops
-            </Tab>
-            <Tab value='posters' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
-            Posters
-            </Tab>
+           
         </TabsHeader>
         <TabsBody
             animate={{
@@ -141,12 +137,7 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
                 <Reviews fetchUrl={reqReviews} tv={tv} />
             </div>
             </TabPanel>
-            <TabPanel value='backdrops'>
-            
-            </TabPanel>
-            <TabPanel value='posters'>
-            
-            </TabPanel>
+           
 
         </TabsBody>
         </Tabs>

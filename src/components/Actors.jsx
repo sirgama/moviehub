@@ -17,7 +17,6 @@ export default function Actors({fetchUrl}) {
     useEffect(()=>{
         getActors()
     }, [])
-console.log(actors)
   return (
     <div className='flex flex-row flex-wrap sm:w-5/6 justify-center mx-auto'>
         {actors.map((actor) => (
