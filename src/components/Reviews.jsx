@@ -20,8 +20,9 @@ export default function Reviews({fetchUrl, pathto}) {
     <div className='flex flex-col flex-wrap sm:w-5/6 justify-center mx-auto'>
         {reviews? reviews.map((item) => (
             <>
+            <hr  className='text-white' />
             <div key={item.id} className='w-auto h-auto  p-6 flex flex-row items-center'>
-                <hr className='bg-white' />
+                
                 <img className='w-[50px] h-[50px] rounded-full object-cover m-2 relative ' src={item?.author_details.avatar_path
  ? `https://image.tmdb.org/t/p/original${item?.author_details.avatar_path}` : `${ProfileImage}` } alt="" />
                 <h3 className=' text-sm sm:text-base font-medium px-6 text-white text-center'>{item.author}</h3>

@@ -153,7 +153,7 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
       </div>
 
         <div>
-            <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20">Recommendations</h1>
+            <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20 mt-20">Recommendations</h1>
              <Recommendations fetchUrl = {recommendations} pathto={pathto}/>
         </div>
     </div>
