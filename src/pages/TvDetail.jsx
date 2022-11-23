@@ -17,11 +17,13 @@ import Reviews from '../components/Reviews'
 import Backdrops from '../components/Backdrops'
 import Posters from '../components/Posters'
 import Navbar from '../components/Navbar'
+import  HashLoader from "react-spinners/HashLoader";
 
 export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv_id, food, pathto, reqImages }) {
 
     const [tvShow, setTvShow] = useState([])
     const [credits, setCredits] = useState([])
+    let [loading, setLoading] = useState(true);
     useEffect(() => {
         window.scrollTo(0, 0)
       }, [])
@@ -30,6 +32,9 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
         axios.get(`https://api.themoviedb.org/3/${tv}${tv_id}?api_key=${food}&language=en-US`).then((res) => {
             const tvfetch = res.data
             setTvShow(tvfetch)
+            setTimeout(() => {
+                setLoading(false)
+              }, 2500)
         })
     }
 
@@ -63,104 +68,117 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
 
   return (
     <div>
-        <Navbar />
-         <div className="w-full h-screen md:h-[650px] text-white">
-        <div className='w-full h-full'>
-        <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black via-gray-900"></div>
-        <img className='w-full h-full object-cover' src={tvShow?.backdrop_path && `https://image.tmdb.org/t/p/original${tvShow?.backdrop_path}`} alt={tvShow?.backdrop_path && tvShow?.name} />
-        <div className='absolute top-[5%] md:top-[10%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap'>
-        <div>
-        <div className='w-[280px] sm:w-[240px] lg:w-[280px] h-80 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
-            <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-xl shadow-pink-900/20' src={`https://image.tmdb.org/t/p/w500${tvShow?.poster_path && tvShow?.poster_path}`} alt='single ' />
-            
-        </div>
-        </div>
-            
-        <div className='md:mx-20 md:px-10 md:my-0 mt-10'>
-        <h1 className='text-2xl md:text-5xl font-semibold '>{tvShow?.name && tvShow?.name}</h1>
-            <div className='my-4'>
-                <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg && mvg.map(genre => <div className='px-1 md:px-5 py-1 border-2 border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer text-xs md:text-xl'>{genre.name}</div>)}</span> <span className="text-sm md:text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl text-xs'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl text-xs'>{time && `${time} Mins` }</span></p>
+        {loading ? 
+                <div className="flex flex-col items-center justify-center justify-items-center my-96">
+                    <HashLoader
+                        color="#fefefe"
+                        size={100}
+                        />
+                </div>
+                     
+                :
+                <>
+                    <Navbar />
+            <div className="w-full h-screen md:h-[650px] text-white">
+            <div className='w-full h-full'>
+            <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black via-gray-900"></div>
+            <img className='w-full h-full object-cover' src={tvShow?.backdrop_path && `https://image.tmdb.org/t/p/original${tvShow?.backdrop_path}`} alt={tvShow?.backdrop_path && tvShow?.name} />
+            <div className='absolute top-[5%] md:top-[10%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap'>
+            <div>
+            <div className='w-[280px] sm:w-[240px] lg:w-[280px] h-80 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
+                <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-xl shadow-pink-900/20' src={`https://image.tmdb.org/t/p/w500${tvShow?.poster_path && tvShow?.poster_path}`} alt='single ' />
                 
             </div>
-            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{tvShow?.tagline && tvShow?.tagline}</p>
-            <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{tvShow?.overview && tvShow?.overview}</p>
-            <div className="my-0">
-            <button className='text-gray-100 md:my-6 '>Rating: <span className='text-3xl md:text-5xl md:px-2 font-semibold'>{tvShow?.vote_average && Math.round(tvShow?.vote_average)}</span>/ 10 </button>
-                <button className='text-gray-100 px-2 md:px-10 '>Votes: <span className='text-sm md:px-2 font-extrabold md:text-3xl'>{tvShow?.vote_count && tvShow?.vote_count }</span></button>
             </div>
-            <div className='my-4 flex flex-row flex-wrap rounded-lg border-4 items-center'>
-                <div className='text-white  py-2 mx-auto flex flex-col'>
-                    <button className='px-10 md:text-2xl md:my-2'>Status</button>
-                    <button className='font-semibold text-sm md:text-xl md:px-4 md:my-2'>{tvShow?.status && tvShow?.status}</button>
+                
+            <div className='md:mx-20 md:px-10 md:my-0 mt-10'>
+            <h1 className='text-2xl md:text-5xl font-semibold '>{tvShow?.name && tvShow?.name}</h1>
+                <div className='my-4'>
+                    <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg && mvg.map(genre => <div className='px-1 md:px-5 py-1 border-2 border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer text-xs md:text-xl'>{genre.name}</div>)}</span> <span className="text-sm md:text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl text-xs'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl text-xs'>{time && `${time} Mins` }</span></p>
+                    
                 </div>
-                <div className='text-white  py-2 mx-auto flex flex-col'>
-                    <button className='px-10 md:text-2xl md:my-2'>Seasons</button>
-                    <button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.seasons && tvShow?.number_of_seasons }</button>
+                <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{tvShow?.tagline && tvShow?.tagline}</p>
+                <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{tvShow?.overview && tvShow?.overview}</p>
+                <div className="my-0">
+                <button className='text-gray-100 md:my-6 '>Rating: <span className='text-3xl md:text-5xl md:px-2 font-semibold'>{tvShow?.vote_average && Math.round(tvShow?.vote_average)}</span>/ 10 </button>
+                    <button className='text-gray-100 px-2 md:px-10 '>Votes: <span className='text-sm md:px-2 font-extrabold md:text-3xl'>{tvShow?.vote_count && tvShow?.vote_count }</span></button>
                 </div>
-                <div className='text-white  py-2 mx-auto flex flex-col'>
-                    <button className='md:px-10 md:text-2xl md:my-2'>Episodes</button>
-                    <button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.type && tvShow?.number_of_episodes}</button>
-                </div>
-                <div className='text-white hidden py-2 mx-auto md:flex flex-col'>
-                    <button className='md:px-10 md:text-2xl md:my-2'>Website</button>
-                    <a href={tvShow?.homepage && tvShow?.homepage}><button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.homepage && <div className=''><AiOutlineLink className='text-center text-sm md:text-2xl mx-20'/> </div> }</button></a>
+                <div className='my-4 flex flex-row flex-wrap rounded-lg border-4 items-center'>
+                    <div className='text-white  py-2 mx-auto flex flex-col'>
+                        <button className='px-10 md:text-2xl md:my-2'>Status</button>
+                        <button className='font-semibold text-sm md:text-xl md:px-4 md:my-2'>{tvShow?.status && tvShow?.status}</button>
+                    </div>
+                    <div className='text-white  py-2 mx-auto flex flex-col'>
+                        <button className='px-10 md:text-2xl md:my-2'>Seasons</button>
+                        <button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.seasons && tvShow?.number_of_seasons }</button>
+                    </div>
+                    <div className='text-white  py-2 mx-auto flex flex-col'>
+                        <button className='md:px-10 md:text-2xl md:my-2'>Episodes</button>
+                        <button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.type && tvShow?.number_of_episodes}</button>
+                    </div>
+                    <div className='text-white hidden py-2 mx-auto md:flex flex-col'>
+                        <button className='md:px-10 md:text-2xl md:my-2'>Website</button>
+                        <a href={tvShow?.homepage && tvShow?.homepage}><button className='font-semibold text-sm md:text-xl md:my-2'>{tvShow?.homepage && <div className=''><AiOutlineLink className='text-center text-sm md:text-2xl mx-20'/> </div> }</button></a>
+                    </div>
                 </div>
             </div>
+            </div>
         </div>
-        </div>
-    </div>
-        </div>
+            </div>
 
-        <div className={`w-screen md:w-full ${overview? 'mt-96' : 'mt-40'}  md:mt-40`}>
-        <Tabs id="custom-animation" className='mt-20 md:mt-10' value="cast">
-        <TabsHeader className='w-11/12 sm:w-2/3 mx-auto mt-2 md:mt-10'>
+            <div className={`w-screen md:w-full ${overview? 'mt-96' : 'mt-40'}  md:mt-40`}>
+            <Tabs id="custom-animation" className='mt-20 md:mt-10' value="cast">
+            <TabsHeader className='w-11/12 sm:w-2/3 mx-auto mt-2 md:mt-10'>
+                
+                <Tab value='cast' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+                    Cast
+                </Tab>
+                <Tab value='reviews' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+                Reviews
+                </Tab>
+                <Tab value='backdrops' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+                    Backdrops
+                </Tab>
+                <Tab value='posters' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+                Posters
+                </Tab>
+            </TabsHeader>
+            <TabsBody
+                animate={{
+                mount: { y: 0 },
+                unmount: { y: 250 },
+                }}
+            >
             
-            <Tab value='cast' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
-                Cast
-            </Tab>
-            <Tab value='reviews' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
-            Reviews
-            </Tab>
-            <Tab value='backdrops' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
-                Backdrops
-            </Tab>
-            <Tab value='posters' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
-            Posters
-            </Tab>
-        </TabsHeader>
-        <TabsBody
-            animate={{
-            mount: { y: 0 },
-            unmount: { y: 250 },
-            }}
-        >
-        
-            <TabPanel value='cast' active>
+                <TabPanel value='cast' active>
+                    <div className='md:p-10 w-full'>
+                        <Actors fetchUrl={reqActors} />
+                    </div>
+            
+                </TabPanel>
+                <TabPanel value='reviews'>
                 <div className='md:p-10 w-full'>
-                     <Actors fetchUrl={reqActors} />
+                    <Reviews fetchUrl={reqReviews} tv={tv} />
                 </div>
-           
-            </TabPanel>
-            <TabPanel value='reviews'>
-            <div className='md:p-10 w-full'>
-                <Reviews fetchUrl={reqReviews} tv={tv} />
-            </div>
-            </TabPanel>
-            <TabPanel value='backdrops'>
-                <Backdrops fetchUrl={reqImages} pathto={pathto} /> 
-            </TabPanel>
-            <TabPanel value='posters'>
-                <Posters fetchUrl = {reqImages} pathto={pathto} />
-            </TabPanel>
+                </TabPanel>
+                <TabPanel value='backdrops'>
+                    <Backdrops fetchUrl={reqImages} pathto={pathto} /> 
+                </TabPanel>
+                <TabPanel value='posters'>
+                    <Posters fetchUrl = {reqImages} pathto={pathto} />
+                </TabPanel>
 
-        </TabsBody>
-        </Tabs>
-      </div>
-
-        <div>
-            <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20 mt-20">Recommendations</h1>
-             <Recommendations fetchUrl = {recommendations} pathto={pathto}/>
+            </TabsBody>
+            </Tabs>
         </div>
+
+            <div>
+                <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20 mt-20">Recommendations</h1>
+                <Recommendations fetchUrl = {recommendations} pathto={pathto}/>
+            </div>
+                </>
+        }
+        
     </div>
   )
 }
