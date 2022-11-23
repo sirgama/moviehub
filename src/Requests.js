@@ -13,7 +13,7 @@ const requests = {
     tvLatest: `https://api.themoviedb.org/3/tv/latest?api_key=${food}&language=en-US`,
     tvToday: `https://api.themoviedb.org/3/tv/airing_today?api_key=${food}&language=en-US&page=1`,
     tvOnair: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${food}&language=en-US&page=1`,
-    tvToprated: `https://api.themoviedb.org/3/tv/top_rated?api_key=${food}&language=en-US&page=1`,
+    tvToprated: `https://api.themoviedb.org/3/tv/top_rated?api_key=${food}&language=en-US&page=1`
     
 }
 
