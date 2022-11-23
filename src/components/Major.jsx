@@ -1,22 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import requests from '../Requests'
 
 export default function Major({movies}) {
-    // const [movies, setMovies] = useState([])
 
-    
-    // const getMovies = () =>{
-    //     axios.get(requests.requestPopular).then((res) => {
-
-    //         const moviesfetch = res.data
-    //         setMovies(moviesfetch.results)
-    //     })
-    // }
-
-    // useEffect(()=> {
-    //    getMovies()
-    // }, [])
 
     let singleMovie = movies[Math.floor(Math.random() * movies.length)]
     const truncateString = (str, num) =>{
@@ -49,7 +37,7 @@ export default function Major({movies}) {
             </form>
         
             <div className='my-4'>
-            <p className='text-sm md:text-sm font-semibold '><span className="text-gray-400">Background image movie: </span> {singleMovie?.title && singleMovie?.title}</p>
+            <p className='text-sm md:text-sm font-semibold '><span className="text-gray-400">Background image movie: </span><Link className='underline' to={`/movie/${singleMovie?.id}`}>{singleMovie?.title && singleMovie?.title}</Link> </p>
               
             </div>
             {/* <div className='my-4'>
