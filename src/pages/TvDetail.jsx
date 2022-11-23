@@ -13,8 +13,9 @@ import {
   } from "@material-tailwind/react";
 import Actors from '../components/Actors'
 import Recommendations from '../components/Recommendations'
+import Reviews from '../components/Reviews'
 
-export default function TvDetail({reqActors, recommendations, tv, tv_id, food, pathto }) {
+export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv_id, food, pathto }) {
 
     const [tvShow, setTvShow] = useState([])
     const [credits, setCredits] = useState([])
@@ -136,7 +137,9 @@ export default function TvDetail({reqActors, recommendations, tv, tv_id, food, p
            
             </TabPanel>
             <TabPanel value='reviews'>
-            
+            <div className='md:p-10 w-full'>
+                <Reviews fetchUrl={reqReviews} tv={tv} />
+            </div>
             </TabPanel>
             <TabPanel value='backdrops'>
             
