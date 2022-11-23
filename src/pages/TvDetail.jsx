@@ -14,6 +14,8 @@ import {
 import Actors from '../components/Actors'
 import Recommendations from '../components/Recommendations'
 import Reviews from '../components/Reviews'
+import Backdrops from '../components/Backdrops'
+import Posters from '../components/Posters'
 
 export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv_id, food, pathto, reqImages }) {
 
@@ -143,10 +145,10 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
             </div>
             </TabPanel>
             <TabPanel value='backdrops'>
-            
+                <Backdrops fetchUrl={reqImages} pathto={pathto} /> 
             </TabPanel>
             <TabPanel value='posters'>
-            
+                <Posters fetchUrl = {reqImages} pathto={pathto} />
             </TabPanel>
 
         </TabsBody>

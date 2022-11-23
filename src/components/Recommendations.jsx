@@ -9,7 +9,6 @@ export default function Recommendations({fetchUrl, pathto}) {
     const getRecommends = () => {
         axios.get(fetchUrl).then((req) => {
             const therecos = req.data.results
-            console.log(therecos)
             setRecommends(therecos)
         })
     }

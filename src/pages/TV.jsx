@@ -13,7 +13,7 @@ export default function TV() {
         reqActors: `https://api.themoviedb.org/3/tv/${tv_id}/credits?api_key=${food}&language=en-US`,
         reqReviews: `https://api.themoviedb.org/3/tv/${tv_id}/reviews?api_key=${food}&language=en-US`,
         recommendations: `https://api.themoviedb.org/3/tv/${tv_id}/recommendations?api_key=${food}&language=en-US&page=1`,
-        reqImages: `https://api.themoviedb.org/3/tv/${tv_id}/images?api_key=${food}&language=en-US&page=1`,
+        reqImages: `https://api.themoviedb.org/3/tv/${tv_id}/images?api_key=${food}&language=en-US`,
         tv: 'tv/',
         tv_id: tv_id,
         food: food,
