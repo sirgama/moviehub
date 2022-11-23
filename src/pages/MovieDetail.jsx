@@ -9,6 +9,7 @@ import Backdrops from '../components/Backdrops'
 import Reviews from '../components/Reviews'
 import Actors from '../components/Actors'
 import Recommendations from '../components/Recommendations'
+import  HashLoader from "react-spinners/HashLoader";
 
 
 export default function MovieDetail({reqActors, reqReviews, recommendations, tv, tv_id, food, pathto, reqImages }) {
@@ -16,6 +17,8 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
     const [singleMovie, setSingleMovie] = useState([])
     const [videos, setVideos] = useState([])
     const [credits, setCredits] = useState([])
+    let [loading, setLoading] = useState(true);
+
     useEffect(() => {
         window.scrollTo(0, 0)
       }, [])
@@ -23,6 +26,10 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
         axios.get(`https://api.themoviedb.org/3/movie/${tv_id}?api_key=${food}&language=en-US`).then((res) => {
             const moviesfetch = res.data
             setSingleMovie(moviesfetch)
+            setTimeout(() => {
+                setLoading(false)
+              }, 3000)
+            
         })
     }
     const getVideos = () =>{
@@ -70,7 +77,18 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
 
   return (
     <div >
-      <div className="w-full h-screen md:h-[650px] text-white">
+        {loading ? 
+        <div className="flex flex-col items-center justify-center justify-items-center my-96">
+            <HashLoader
+                color="#fefefe"
+                size={100}
+                />
+        </div>
+             
+        :
+
+        <>
+          <div className="w-full h-screen md:h-[650px] text-white">
     <div className='w-full h-full'>
         <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black via-gray-900"></div>
         <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`} alt={singleMovie?.title} />
@@ -167,6 +185,9 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
             <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20 mt-20">Recommendations</h1>
              <Recommendations fetchUrl = {recommendations} pathto={pathto}/>
         </div>
+        </>
+    }
+    
 
     </div>
   )
