@@ -21,7 +21,7 @@ const handleLogout = async () =>{
     <div className='flex items-center justify-between p-2 z-[100] absolute w-full md:p-12'>
         <img src={Logo} className='h-8 w-auto md:ml-20 md:h-14' alt="Netflix" />
         {user?.email ? <div>
-            <Link to='/login'>
+            <Link to='/home'>
             <button className='text-white px-2 py-1 text-sm md:text-base font-bold rounded cursor-pointer'>Movies</button>
             </Link>
             <Link to='/home'>

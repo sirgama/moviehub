@@ -10,6 +10,7 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
+import Navbar from '../components/Navbar'
 
 export default function Home() {
 
@@ -17,6 +18,7 @@ export default function Home() {
 
   return (
     <div>
+      <Navbar />
       <Major />
       <div>
       <Tabs id="custom-animation" value="movies">

@@ -2,12 +2,14 @@ import React from "react";
 import { RoughNotation } from "react-rough-notation";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import Row from '../components/Row'
 import requests from '../Requests'
 
 export default function Landing() {
   return (
     <div className="w-full h-full ">
+      <Navbar />
       <div className="w-full h-screen ">
         <div className="absolute w-full h-screen bg-gradient-to-r from-black"></div>
         <img

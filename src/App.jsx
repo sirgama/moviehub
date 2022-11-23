@@ -22,7 +22,7 @@ function App() {
       
       <BrowserRouter>
      
-     <Navbar />
+     
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />

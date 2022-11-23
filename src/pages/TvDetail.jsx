@@ -16,6 +16,7 @@ import Recommendations from '../components/Recommendations'
 import Reviews from '../components/Reviews'
 import Backdrops from '../components/Backdrops'
 import Posters from '../components/Posters'
+import Navbar from '../components/Navbar'
 
 export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv_id, food, pathto, reqImages }) {
 
@@ -62,6 +63,7 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
 
   return (
     <div>
+        <Navbar />
          <div className="w-full h-screen md:h-[650px] text-white">
         <div className='w-full h-full'>
         <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black via-gray-900"></div>

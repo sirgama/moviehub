@@ -10,6 +10,7 @@ import Reviews from '../components/Reviews'
 import Actors from '../components/Actors'
 import Recommendations from '../components/Recommendations'
 import  HashLoader from "react-spinners/HashLoader";
+import Navbar from '../components/Navbar'
 
 
 export default function MovieDetail({reqActors, reqReviews, recommendations, tv, tv_id, food, pathto, reqImages }) {
@@ -28,7 +29,7 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
             setSingleMovie(moviesfetch)
             setTimeout(() => {
                 setLoading(false)
-              }, 3000)
+              }, 2500)
             
         })
     }
@@ -88,6 +89,7 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
         :
 
         <>
+        <Navbar />
           <div className="w-full h-screen md:h-[650px] text-white">
     <div className='w-full h-full'>
         <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black via-gray-900"></div>
