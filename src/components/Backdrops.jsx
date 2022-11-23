@@ -16,7 +16,7 @@ export default function Backdrops({fetchUrl, pathto}) {
         getBackdrops()
     }, [fetchUrl])
 
-
+    
   return (
     <div className='flex flex-row flex-wrap sm:w-5/6 justify-center mx-auto mt-10'>
         {backdrops.map((item) => (

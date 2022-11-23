@@ -19,7 +19,7 @@ export default function TV() {
         food: food,
         pathto: '/tv/show/'
     }
-    console.log(obj.tv_id)
+   
 
   return (
     <div key={location.key}>

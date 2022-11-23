@@ -6,6 +6,12 @@ import {useParams} from "react-router-dom"
 import Movieheader from '../components/Movieheader'
 import Datecalc from '../components/Datecalc'
 import {AiFillYoutube, AiOutlineLink} from 'react-icons/ai'
+import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '@material-tailwind/react'
+import Posters from '../components/Posters'
+import Backdrops from '../components/Backdrops'
+import Reviews from '../components/Reviews'
+import Actors from '../components/Actors'
+import Recommendations from '../components/Recommendations'
 
 
 export default function MovieDetail(props) {
@@ -14,7 +20,6 @@ export default function MovieDetail(props) {
     const [videos, setVideos] = useState([])
     const [credits, setCredits] = useState([])
     const {movie_id} = useParams()
-    console.log(singleMovie)
 
     const getMovie = () =>{
         axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${food}&language=en-US`).then((res) => {
@@ -51,11 +56,9 @@ export default function MovieDetail(props) {
     const moviedate = singleMovie?.release_date
     let yr = new Date(moviedate)
     let date = Datecalc(yr)
-    console.log(date)
 
     const movieTime =  singleMovie?.runtime
     let time = Math.round(movieTime / 60)
-    console.log(credits)
 
     const mvg = singleMovie?.genres
 
@@ -64,6 +67,20 @@ export default function MovieDetail(props) {
         return el.type === 'Trailer'
     })
     let trailer = getYoutube[0]
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+    const obj = {
+        reqActors: `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${food}&language=en-US`,
+        reqReviews: `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${food}&language=en-US`,
+        recommendations: `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${food}&language=en-US&page=1`,
+        reqImages: `https://api.themoviedb.org/3/movie/${movie_id}/images?api_key=${food}&language=en-US`,
+        tv: 'movie/',
+        tv_id: movie_id,
+        food: food,
+        pathto: '/movie/'
+    }
 
   return (
     <div>
@@ -114,6 +131,57 @@ export default function MovieDetail(props) {
     </div>
     </div>
         
+    <div className={`w-screen md:w-full ${singleMovie.overview? 'mt-96' : 'mt-40'}  md:mt-40`}>
+        <Tabs id="custom-animation" className='mt-20 md:mt-10' value="cast">
+        <TabsHeader className='w-11/12 sm:w-2/3 mx-auto mt-2 md:mt-10'>
+            
+            <Tab value='cast' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+                Cast
+            </Tab>
+            <Tab value='reviews' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+            Reviews
+            </Tab>
+            <Tab value='backdrops' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+                Backdrops
+            </Tab>
+            <Tab value='posters' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
+            Posters
+            </Tab>
+        </TabsHeader>
+        <TabsBody
+            animate={{
+            mount: { y: 0 },
+            unmount: { y: 250 },
+            }}
+        >
+        
+            <TabPanel value='cast' active>
+                <div className='md:p-10 w-full'>
+                     <Actors fetchUrl={obj.reqActors} />
+                </div>
+           
+            </TabPanel>
+            <TabPanel value='reviews'>
+            <div className='md:p-10 w-full'>
+                <Reviews fetchUrl={obj.reqReviews} tv={obj.tv} />
+            </div>
+            </TabPanel>
+            <TabPanel value='backdrops'>
+                <Backdrops fetchUrl={obj.reqImages} pathto={obj.pathto} /> 
+            </TabPanel>
+            <TabPanel value='posters'>
+                <Posters fetchUrl = {obj.reqImages} pathto={obj.pathto} />
+            </TabPanel>
+
+        </TabsBody>
+        </Tabs>
+      </div>
+
+        <div>
+            <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20 mt-20">Recommendations</h1>
+             <Recommendations fetchUrl = {obj.recommendations} pathto={obj.pathto}/>
+        </div>
+
     </div>
   )
 }
