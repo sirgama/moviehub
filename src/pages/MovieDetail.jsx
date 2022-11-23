@@ -1,9 +1,6 @@
 import axios from 'axios'
-import { format } from 'date-fns'
 import React, { useEffect, useState } from 'react'
-import { food } from '../openkey'
 import {useParams} from "react-router-dom"
-import Movieheader from '../components/Movieheader'
 import Datecalc from '../components/Datecalc'
 import {AiFillYoutube, AiOutlineLink} from 'react-icons/ai'
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '@material-tailwind/react'
@@ -14,27 +11,26 @@ import Actors from '../components/Actors'
 import Recommendations from '../components/Recommendations'
 
 
-export default function MovieDetail(props) {
+export default function MovieDetail({reqActors, reqReviews, recommendations, tv, tv_id, food, pathto, reqImages }) {
 
     const [singleMovie, setSingleMovie] = useState([])
     const [videos, setVideos] = useState([])
     const [credits, setCredits] = useState([])
-    const {movie_id} = useParams()
 
     const getMovie = () =>{
-        axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${food}&language=en-US`).then((res) => {
+        axios.get(`https://api.themoviedb.org/3/movie/${tv_id}?api_key=${food}&language=en-US`).then((res) => {
             const moviesfetch = res.data
             setSingleMovie(moviesfetch)
         })
     }
     const getVideos = () =>{
-        axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${food}&language=en-US`).then((res) => {
+        axios.get(`https://api.themoviedb.org/3/movie/${tv_id}/videos?api_key=${food}&language=en-US`).then((res) => {
             const videosfetch = res.data
             setVideos(videosfetch.results)
         })
     }
     const getCredits = () =>{
-        axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${food}&language=en-US`).then((res) => {
+        axios.get(`https://api.themoviedb.org/3/movie/${tv_id}/credits?api_key=${food}&language=en-US`).then((res) => {
             const creditsfetch = res.data
             setCredits(creditsfetch)
         })
@@ -68,26 +64,14 @@ export default function MovieDetail(props) {
     })
     let trailer = getYoutube[0]
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-      }, [])
-    const obj = {
-        reqActors: `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${food}&language=en-US`,
-        reqReviews: `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${food}&language=en-US`,
-        recommendations: `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${food}&language=en-US&page=1`,
-        reqImages: `https://api.themoviedb.org/3/movie/${movie_id}/images?api_key=${food}&language=en-US`,
-        tv: 'movie/',
-        tv_id: movie_id,
-        food: food,
-        pathto: '/movie/'
-    }
+   
 
   return (
-    <div>
+    <div >
       <div className="w-full h-screen md:h-[650px] text-white">
     <div className='w-full h-full'>
         <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black via-gray-900"></div>
-        <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`} alt={singleMovie?.title} />
+        <img className='w-full h-full ct-cover' src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`} alt={singleMovie?.title} />
         <div className='absolute top-[5%] md:top-[10%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap'>
         <div>
         <div className='w-[280px] sm:w-[240px] lg:w-[280px] h-96 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
@@ -157,20 +141,20 @@ export default function MovieDetail(props) {
         
             <TabPanel value='cast' active>
                 <div className='md:p-10 w-full'>
-                     <Actors fetchUrl={obj.reqActors} />
+                     <Actors fetchUrl={reqActors} />
                 </div>
            
             </TabPanel>
             <TabPanel value='reviews'>
             <div className='md:p-10 w-full'>
-                <Reviews fetchUrl={obj.reqReviews} tv={obj.tv} />
+                <Reviews fetchUrl={reqReviews} tv={tv} />
             </div>
             </TabPanel>
             <TabPanel value='backdrops'>
-                <Backdrops fetchUrl={obj.reqImages} pathto={obj.pathto} /> 
+                <Backdrops fetchUrl={reqImages} pathto={pathto} /> 
             </TabPanel>
             <TabPanel value='posters'>
-                <Posters fetchUrl = {obj.reqImages} pathto={obj.pathto} />
+                <Posters fetchUrl = {reqImages} pathto={pathto} />
             </TabPanel>
 
         </TabsBody>
@@ -179,7 +163,7 @@ export default function MovieDetail(props) {
 
         <div>
             <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20 mt-20">Recommendations</h1>
-             <Recommendations fetchUrl = {obj.recommendations} pathto={obj.pathto}/>
+             <Recommendations fetchUrl = {recommendations} pathto={pathto}/>
         </div>
 
     </div>
