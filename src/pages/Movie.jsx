@@ -4,8 +4,8 @@ import { food } from '../openkey';
 import MovieDetail from './MovieDetail';
 
 export default function Movie() {
+    const location = useLocation()
     const {movie_id} = useParams()
-    const location = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0)
       }, [])

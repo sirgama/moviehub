@@ -16,7 +16,9 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
     const [singleMovie, setSingleMovie] = useState([])
     const [videos, setVideos] = useState([])
     const [credits, setCredits] = useState([])
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     const getMovie = () =>{
         axios.get(`https://api.themoviedb.org/3/movie/${tv_id}?api_key=${food}&language=en-US`).then((res) => {
             const moviesfetch = res.data
@@ -71,11 +73,11 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
       <div className="w-full h-screen md:h-[650px] text-white">
     <div className='w-full h-full'>
         <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black via-gray-900"></div>
-        <img className='w-full h-full ct-cover' src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`} alt={singleMovie?.title} />
+        <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`} alt={singleMovie?.title} />
         <div className='absolute top-[5%] md:top-[10%] p-5 m-5 flex flex-row flex-wrap sm:flex-nowrap'>
         <div>
         <div className='w-[280px] sm:w-[240px] lg:w-[280px] h-96 sm:h-96 inline-block cursor-pointer relative p-3 md:p-0'>
-            <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-xl shadow-pink-900/20' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path && singleMovie?.poster_path}`} alt='single ' />
+            <img className='w-auto h-full block bg-cover bg-center rounded-lg shadow-xl shadow-pink-900/20' src={`https://image.tmdb.org/t/p/w500${singleMovie?.poster_path && singleMovie?.poster_path}`} alt={singleMovie?.title} />
             <a target="_blank" href={`https://www.youtube.com/watch?v=${trailer?.key}`}><button className="border text-center inline-block md:my-4 w-[210px] md:w-[250px] p-2 my-6 md:px-4 rounded-md bg-gray-100 text-black font-semibold"><AiFillYoutube className='inline' /> Play Trailer</button></a>
         </div>
         </div>
@@ -105,7 +107,7 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
                     <button className='px-10 md:text-2xl md:my-2'>Revenue</button>
                     <button className='font-semibold md:text-2xl md:my-2'>${singleMovie?.revenue && singleMovie?.revenue}</button>
                 </div>
-                <div className='text-white  py-2 mx-auto flex flex-col'>
+                <div className='text-white  py-2 mx-auto  flex-col hidden sm:flex'>
                     <button className='px-10 md:text-2xl md:my-2'>Website</button>
                     <a href={singleMovie?.homepage && singleMovie?.homepage}><button className='font-semibold text-sm md:text-xl md:my-2'>{singleMovie?.homepage && <div className='flex'><AiOutlineLink className='text-center text-2xl mx-20'/> </div> }</button></a>
                 </div>
@@ -115,9 +117,9 @@ export default function MovieDetail({reqActors, reqReviews, recommendations, tv,
     </div>
     </div>
         
-    <div className={`w-screen md:w-full ${singleMovie.overview? 'mt-96' : 'mt-40'}  md:mt-40`}>
-        <Tabs id="custom-animation" className='mt-20 md:mt-10' value="cast">
-        <TabsHeader className='w-11/12 sm:w-2/3 mx-auto mt-2 md:mt-10'>
+    <div className={`w-screen md:w-full ${singleMovie.overview? 'mt-96' : 'mt-64'}  md:mt-64`}>
+        <Tabs id="custom-animation" className='mt-64 md:mt-10' value="cast">
+        <TabsHeader className='w-11/12 sm:w-2/3 mx-auto mt-44 md:mt-28'>
             
             <Tab value='cast' className='text-gray-900 font-bold py-2 md:text-xl md:py-2 m-1'>
                 Cast
