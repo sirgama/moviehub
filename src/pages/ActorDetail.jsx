@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import Filmography from '../components/Filmography';
 
 export default function ActorDetail() {
-
+    const [actor, setActor] = useState([])
     const {actor_id} = useParams()
     let [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -16,6 +16,22 @@ export default function ActorDetail() {
         tv: '/tv/show/',
         movie: '/movie/',
     }
+
+    const getActor = () =>{
+        axios.get(obj.reqActor).then((res) => {
+            const actorfetch = res.data
+            setActor(actorfetch)
+            setTimeout(() => {
+                setLoading(false)
+              }, 2500)
+            
+        })
+    }
+
+    useEffect(() => {
+        getActor()
+    }, [obj.reqActor])
+
   return (
     <div>
         <div className="w-full h-screen">
