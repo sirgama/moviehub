@@ -1,6 +1,6 @@
 # MovieHub
 
-MovieHub is a web application that contains relevant information about all publicly available Actors, Movies, Series, Animations and TV Shows. Quickly get all relevant information including movie trailers and additional actor details. Have a nice experience exploring the app.
+MovieHub is a web application that contains relevant information about all publicly available Actors, Movies, Series, Animations and TV Shows. Quickly get all relevant information including movie trailers and additional actor details. Have a nice immersive experience exploring the app.
 
 ### Issues
  - Still working on search feature which will be available soon.

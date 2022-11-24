@@ -13,13 +13,7 @@ export default function Movieheader() {
             setMovies(moviesfetch.results)
         })
     }
-    // useEffect(()=> {
-    //     const interval = setInterval(() => {
-    //         getMovies()
-    //     }, 1000000)
-
-    //     return () => clearInterval(interval)
-    // }, [])
+  
     useEffect(()=> {
        getMovies()
     }, [])
@@ -34,8 +28,6 @@ export default function Movieheader() {
         }
     }
 
-    console.log(movies)
-    console.log(`https://api.themoviedb.org/3/movie/663712/?api_key=9a25db7f65df2c373b27d714a00b3d96`)
   return (
     <div className="w-full h-screen md:h-[650px] text-white">
     <div className='w-full h-full'>
