@@ -31,7 +31,6 @@ export default function ActorDetail() {
             
         })
     }
-console.log(actor)
     useEffect(() => {
         getActor()
     }, [obj.reqActor])
