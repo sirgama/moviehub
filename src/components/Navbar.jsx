@@ -22,7 +22,7 @@ const handleLogout = async () =>{
         <img src={Logo} className='h-8 w-auto md:ml-20 md:h-14' alt="Netflix" />
         {user?.email ? <div>
             <Link to='/home'>
-            <button className='text-white px-2 py-1 text-sm md:text-base font-bold rounded cursor-pointer'>Movies</button>
+            <button className='text-white px-2 py-1 text-sm md:text-base font-bold rounded cursor-pointer'>Home</button>
             </Link>
             <Link to='/home'>
             <button onClick={handleLogout} className='text-white bg-pink-600 text-sm px-2 py-1 rounded mx-2 md:px-5 md:text-base font-bold md:py-3 md:mr-20 cursor-pointer'>Logout</button>

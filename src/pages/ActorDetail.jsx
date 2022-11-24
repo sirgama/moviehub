@@ -4,6 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import Filmography from '../components/Filmography';
 import  HashLoader from "react-spinners/HashLoader";
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 
 export default function ActorDetail() {
     const [actor, setActor] = useState([])
@@ -49,6 +50,7 @@ console.log(actor)
         :
 
         <>
+        <Navbar />
           <div className="w-full h-screen">
 
            
