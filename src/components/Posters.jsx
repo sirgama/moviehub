@@ -15,8 +15,6 @@ export default function Posters({fetchUrl, pathto}) {
         getposters()
     }, [fetchUrl])
 
-    console.log(posters)
-
 
   return (
     <div className='flex flex-row flex-wrap sm:w-5/6 justify-center mx-auto mt-10'>

@@ -20,8 +20,6 @@ export default function Movie() {
         pathto: '/movie/'
     }
 
-    console.log(movie_id)
-
   return (
     <div key={location.key}>
         <MovieDetail {...obj} />

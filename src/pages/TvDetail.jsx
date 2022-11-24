@@ -94,7 +94,7 @@ export default function TvDetail({reqActors, reqReviews, recommendations, tv, tv
             <div className='md:mx-20 md:px-10 md:my-0 mt-10'>
             <h1 className='text-2xl md:text-5xl font-semibold '>{tvShow?.name && tvShow?.name}</h1>
                 <div className='my-4'>
-                    <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg && mvg.map(genre => <div className='px-1 md:px-5 py-1 border-2 border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer text-xs md:text-xl'>{genre.name}</div>)}</span> <span className="text-sm md:text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl text-xs'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl text-xs'>{time && `${time} Mins` }</span></p>
+                    <p className='text-gray-00 text-base'><span className='font-semibold text-white'>{mvg && mvg.map(genre => <div key={genre.id} className='px-1 md:px-5 py-1 border-2 border-white rounded-full my-1 mx-1 inline-block md:mx-2 hover:bg-gray-200 hover:text-black cursor-pointer text-xs md:text-xl'>{genre.name}</div>)}</span> <span className="text-sm md:text-xl font-bold p-2"> ~ </span> <br className=' sm:hidden' /><span className='font-semibold text-white md:text-xl text-xs'>{date}</span>  <span className="text-xl font-bold p-2"> ~ </span><span className='font-semibold text-white md:text-xl text-xs'>{time && `${time} Mins` }</span></p>
                     
                 </div>
                 <p className="w-full text-gray-100 md:font-semibold text-sm py-2 md:text-xl">{tvShow?.tagline && tvShow?.tagline}</p>

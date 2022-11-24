@@ -15,7 +15,6 @@ export default function Reviews({fetchUrl, pathto}) {
     useEffect(() => {
         getReviews()
     }, [fetchUrl])
-    console.log(reviews)
   return (
     <div className='flex flex-col flex-wrap sm:w-5/6 justify-center mx-auto'>
         {reviews? reviews.map((item) => (
