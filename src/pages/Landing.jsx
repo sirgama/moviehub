@@ -66,8 +66,8 @@ export default function Landing() {
     <div className="w-full p-5  ">
       <div className="w-full md:w-2/3  mx-auto">
         <div className="flex justify-between md:my-6">
-          <h3 className=" text-white text-sm md:text-xl font-bold underline decoration-indigo-500">Well curated movies</h3>
-          <h6 className="text-white text-sm md:text-xl font-bold underline decoration-indigo-500">See all</h6>
+          <h3 className=" text-white text-sm md:text-xl font-bold  decoration-indigo-500">Well curated movies</h3>
+          <a href="/home"><h6 className="text-white text-sm md:text-xl font-bold underline decoration-indigo-500">See all</h6></a>
         </div>
           
           <div>
@@ -78,7 +78,7 @@ export default function Landing() {
       
     </div>
     <div className="text-white w-full bg-gradient-to-r ">
-            <h1 className="text-4xl text-center p-5 my-8 font-bold ">What we <br /> <span className="underline decoration-sky-500">Actually offer</span> </h1>
+            <h1 className="text-4xl text-center p-5 my-8 font-bold ">Immersive <br /> <span className="underline decoration-sky-500">Experience</span> </h1>
             <div className="flex flex-wrap justify-around md:flex-nowrap w-5/6 mx-auto">
               <div className="flex flex-col  p-6 md:p-1 m-10">
                   <h3 className="text-4xl text-center font-bold text-cyan-200">800+</h3>
