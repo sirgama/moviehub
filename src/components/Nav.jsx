@@ -1,31 +1,28 @@
-import { Fragment } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Logo from '../assets/logo.svg'
-import { UserAuth } from '../context/AuthContext'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../assets/logo.svg";
+import { UserAuth } from "../context/AuthContext";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const navigation = [
-  { name: 'Movies', href: '/home', current: true },
-]
+const navigation = [{ name: "Movies", href: "/home", current: true }];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Nav() {
-
-    const {user, logOut} = UserAuth()
-const navigate = useNavigate()
-// console.log(user.metadata.lastSignInTime)
-const handleLogout = async () =>{
+  const { user, logOut } = UserAuth();
+  const navigate = useNavigate();
+  // console.log(user.metadata.lastSignInTime)
+  const handleLogout = async () => {
     try {
-        await logOut()
-        navigate('/')
+      await logOut();
+      navigate("/");
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-}
+  };
 
   return (
     <Disclosure as="nav" className="">
@@ -45,18 +42,19 @@ const handleLogout = async () =>{
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <Link to='/'><div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden"
-                    src={Logo}
-                    alt="MovieHub"
-                  />
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src={Logo}
-                    alt="MovieHub"
-                  />
-                </div>
+                <Link to="/">
+                  <div className="flex flex-shrink-0 items-center">
+                    <img
+                      className="block h-8 w-auto lg:hidden"
+                      src={Logo}
+                      alt="MovieHub"
+                    />
+                    <img
+                      className="hidden h-8 w-auto lg:block"
+                      src={Logo}
+                      alt="MovieHub"
+                    />
+                  </div>
                 </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -65,16 +63,24 @@ const handleLogout = async () =>{
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-pink-500 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          item.current
+                            ? "bg-pink-500 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
                     ))}
-                    <form action="" className=''>
-                      <input type="search" name="movie" id="movie" className='bg-gray-700 md:px-10 py-1 rounded-md text-white border-sky-700' placeholder='Search for movies...' />
+                    <form action="" className="">
+                      <input
+                        type="search"
+                        name="movie"
+                        id="movie"
+                        className="bg-gray-700 md:px-10 py-1 rounded-md text-white border-sky-700"
+                        placeholder="Search for movies..."
+                      />
                     </form>
                   </div>
                 </div>
@@ -115,7 +121,10 @@ const handleLogout = async () =>{
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-100 font-semibold')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-100 font-semibold"
+                            )}
                           >
                             Your Profile
                           </a>
@@ -125,7 +134,10 @@ const handleLogout = async () =>{
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-100 font-semibold')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-100 font-semibold"
+                            )}
                           >
                             Settings
                           </a>
@@ -135,7 +147,10 @@ const handleLogout = async () =>{
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-100 font-semibold')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-100 font-semibold"
+                            )}
                             onClick={handleLogout}
                           >
                             Sign out
@@ -146,7 +161,6 @@ const handleLogout = async () =>{
                   </Transition>
                 </Menu>
               </div>
-
             </div>
           </div>
 
@@ -158,10 +172,12 @@ const handleLogout = async () =>{
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -171,5 +187,5 @@ const handleLogout = async () =>{
         </>
       )}
     </Disclosure>
-  )
+  );
 }

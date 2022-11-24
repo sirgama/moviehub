@@ -19,23 +19,54 @@ import ActorDetail from "./pages/ActorDetail";
 function App() {
   return (
     <>
-    <AuthContextProvider>
-      
-      <BrowserRouter>
-     
-     
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/account' element={<ProtectedRoute><Account /></ProtectedRoute> } />
-        <Route path='/movie/:movie_id' element={<ProtectedRoute><Movie /></ProtectedRoute>} />
-        <Route path='/actor/:actor_id' element={<ProtectedRoute><ActorDetail /></ProtectedRoute>} />
-        <Route path='/tv/show/:tv_id' element={<ProtectedRoute><TV /></ProtectedRoute>} />
-      </Routes>
-      
-      </BrowserRouter>
+      <AuthContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/account"
+              element={
+                <ProtectedRoute>
+                  <Account />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/movie/:movie_id"
+              element={
+                <ProtectedRoute>
+                  <Movie />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/actor/:actor_id"
+              element={
+                <ProtectedRoute>
+                  <ActorDetail />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tv/show/:tv_id"
+              element={
+                <ProtectedRoute>
+                  <TV />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
       </AuthContextProvider>
     </>
   );
