@@ -19,8 +19,10 @@ MovieHub is a web application that contains relevant information about all publi
  <img src='./figs/img1.jpg'>
  <img src='./figs/img2.jpg'>
  <img src='./figs/img3.jpg'>
+  <img src='./figs/img8.jpg'>
  <img src='./figs/img5.jpg'>
- <img src='./figs/img4.jpg'>
+ <img src='./figs/img7.jpg'>
+  <img src='./figs/img9.jpg'>
 
  ### Author
  
