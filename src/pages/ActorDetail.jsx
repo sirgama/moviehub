@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { food } from '../openkey'
 import { useLocation, useParams } from 'react-router-dom';
 import Filmography from '../components/Filmography';
+import  HashLoader from "react-spinners/HashLoader";
 
 export default function ActorDetail() {
     const [actor, setActor] = useState([])
     const {actor_id} = useParams()
+    const location = useLocation()
     let [loading, setLoading] = useState(true);
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -33,8 +35,20 @@ export default function ActorDetail() {
     }, [obj.reqActor])
 
   return (
-    <div>
-        <div className="w-full h-screen">
+    <div key={location.key}>
+
+{loading ? 
+        <div className="flex flex-col items-center justify-center justify-items-center my-96">
+            <HashLoader
+                color="#fefefe"
+                size={100}
+                />
+        </div>
+             
+        :
+
+        <>
+          <div className="w-full h-screen">
             <div className="flex flex-row flex-wrap">
                 <div className="w-[220px] sm:w-[290px]  h-auto sm:h-auto inline-block cursor-pointer relative mb-6 p-3 sm:p-0 mt-10 ml-10  sm:mt-32 sm:ml-14 sm:mr-4">
                     <img className='w-auto h-full block bg-cover bg-center rounded-lg' src="https://image.tmdb.org/t/p/w500/AlhEFI2E7t56hIc2d8eArm7bgmT.jpg" alt="" />
@@ -69,6 +83,10 @@ export default function ActorDetail() {
             <h1 className="text-center font-extrabold text-3xl sm:text-4xl text-white sm:my-20 mt-20">Filmography</h1>
                 <Filmography fetchUrl = {obj.reqFilms} movie={obj.movie} tv={obj.tv}/>
         </div>
+        </>
+}
+
+      
     </div>
   )
 }
