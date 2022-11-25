@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { food } from "../openkey";
 
 export default function Major({ movies }) {
 
     const [value, setValue] = useState('')
+    const [results, setResults] = useState([])
 
+    const getData = () => {
+        axios.get(`https://api.themoviedb.org/3/search/multi?api_key=${food}&language=en-US&query=${value}&page=1&include_adult=false`)
+        .then((req) => {
+            setResults(req.data.results)
+        })
+    }
+    useEffect(() => {
+        getData()
+    }, [value])
+console.log(results)
   let singleMovie = movies[Math.floor(Math.random() * movies.length)];
   const truncateString = (str, num) => {
     if (str?.length > num) {
