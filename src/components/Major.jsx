@@ -47,7 +47,14 @@ console.log(results)
                 placeholder="Search for a movie or TV show"
               />
             </form>
-
+            <div className="absolute top-18 left-0 right-0  flex justify-between w-full">
+                <div className="flex justify-between w-full sm:w-full rounded text-black bg-white">
+                    <h2 className=" p-2 text-sm m-1">hello</h2>
+                     <h2 className=" py-1 m-1 font-bold text-sm px-1 border-2 border-blue-400">hello</h2>
+                </div>
+           
+            
+            </div>
             <div className="my-4">
               <p className="text-sm md:text-sm font-semibold ">
                 <span className="text-gray-400">Background image movie: </span>
