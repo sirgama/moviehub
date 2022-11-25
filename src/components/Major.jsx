@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Major({ movies }) {
+
+    const [value, setValue] = useState('')
+
   let singleMovie = movies[Math.floor(Math.random() * movies.length)];
   const truncateString = (str, num) => {
     if (str?.length > num) {
@@ -26,8 +29,8 @@ export default function Major({ movies }) {
               <input
                 className="bg-transparent border-b-4 border-pink-700 placeholder:text-white placeholder:text-md  md:w-[600px] py-2 focus:outline-none block w-[300px]"
                 type="text"
-                name=""
-                id=""
+                onChange={(e) => setValue(e.target.value)}
+                value={value}
                 placeholder="Search for a movie or TV show"
               />
             </form>
