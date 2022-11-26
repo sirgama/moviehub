@@ -46,7 +46,7 @@ export default function Major({ movies }) {
                 type="text"
                 onChange={(e) => setValue(e.target.value)}
                 value={value}
-                placeholder="Search for a movie or TV show"
+                placeholder="Search for a Movie, Actor or TV show"
               />
             </form>
            
@@ -71,12 +71,12 @@ export default function Major({ movies }) {
               </p>
             </div> */}
 
-            <p className="text-gray-400 text-sm">
+            {/* <p className="text-gray-400 text-sm">
               Release date:{" "}
               <span className="font-bold text-white">
                 {singleMovie?.release_date && singleMovie?.release_date}
               </span>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

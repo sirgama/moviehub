@@ -3,7 +3,7 @@
 MovieHub is a web application that contains relevant information about all publicly available Actors, Movies, Series, Animations and TV Shows. Quickly get all relevant information including movie trailers and additional actor details. Have a nice immersive experience exploring the app.
 
 ### Issues
- - Still working on search feature which will be available soon.
+ - ~~Still working on search feature which will be available soon~~. **Added**
  - Responsiveness on old Samsung devices is a mess(Galaxy S8+, S9).
  - If you find any new issues aside from the listed issues, create an issue/bug report in this repo.
 
