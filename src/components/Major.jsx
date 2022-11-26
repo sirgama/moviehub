@@ -18,7 +18,7 @@ export default function Major({ movies }) {
         getData()
     }, [value])
 console.log(results)
-  let singleMovie = movies[Math.floor(Math.random() * movies.length)];
+  const singleMovie = movies[Math.floor(Math.random() * movies.length)];
   const truncateString = (str, num) => {
     if (str?.length > num) {
       return str.slice(0, num) + "...";
@@ -26,6 +26,8 @@ console.log(results)
       return str;
     }
   };
+  const retun = results.slice(0,6)
+  console.log(retun)
 
   return (
     <div className="w-full h-screen md:h-[650px] text-white">
@@ -33,7 +35,7 @@ console.log(results)
         <div className="absolute w-full h-screen md:h-[650px] bg-gradient-to-t from-black  "></div>
         <img
           className="w-full h-full object-cover"
-          src={`https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/original/fP7h30lS3ue0n7kz1aNw5jiIKo9.jpg`}
           alt={singleMovie?.title}
         />
         <div className="absolute top-[40%]  md:top-[30%] md:left-[20%] p-2 m-5 flex flex-row flex-wrap sm:flex-nowrap justify-center items-center">
