@@ -17,7 +17,7 @@ export default function Major({ movies }) {
     useEffect(() => {
         getData()
     }, [value])
-console.log(results)
+
   const singleMovie = movies[Math.floor(Math.random() * movies.length)];
   const truncateString = (str, num) => {
     if (str?.length > num) {
@@ -49,22 +49,27 @@ console.log(results)
                 placeholder="Search for a movie or TV show"
               />
             </form>
-            <div className="absolute top-18 left-0 right-0  flex justify-between w-full">
-                <div className="flex justify-between w-full sm:w-full rounded text-black bg-white">
-                    <h2 className=" p-2 text-sm m-1">hello</h2>
-                     <h2 className=" py-1 m-1 font-bold text-sm px-1 border-2 border-blue-400">hello</h2>
-                </div>
            
-            
-            </div>
-            <div className="my-4">
+                    <div className="absolute top-18 left-0 right-0  flex flex-col text-white justify-between w-full">
+                {retun && retun.map(item => (
+                              
+                <Link to={item?.media_type === 'movie' ? `/movie/${item.id}` : item?.media_type === 'tv' ? `/tv/show/${item.id}` : `/actor/${item.id}`}><div key={item?.id} className="flex justify-between w-full sm:w-full rounded text-black bg-white mt-1">
+                      <h2 className=" p-2 text-xs m-1">{item.title? item?.title : item?.name}</h2> 
+                     <h2 className=" py-1 m-1 font-bold text-xs px-1 border-2 ">{item?.media_type === 'movie' ? `Movie` : item?.media_type === 'tv' ? `TV` : `Actor`}</h2>
+                </div>
+</Link>
+               
+           ))}
+            </div>  
+           
+            {/* <div className="my-4">
               <p className="text-sm md:text-sm font-semibold ">
                 <span className="text-gray-400">Background image movie: </span>
                 <Link className="underline" to={`/movie/${singleMovie?.id}`}>
                   {singleMovie?.title && singleMovie?.title}
                 </Link>{" "}
               </p>
-            </div>
+            </div> */}
 
             <p className="text-gray-400 text-sm">
               Release date:{" "}
